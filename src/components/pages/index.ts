@@ -1,1 +1,6 @@
-export { AchievementsSection, HeroSection, PrinciplesSection } from "./home";
+export {
+  AchievementsSection,
+  ContactSection,
+  HeroSection,
+  PrinciplesSection,
+} from "./home";

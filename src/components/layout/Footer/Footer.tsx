@@ -1,15 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { CheckIcon, CopyIcon, ExternalIcon } from "@/components/icons";
+import { useEffect, useRef } from "react";
+import { ContactLink, EmailCopyButton } from "@/components";
 import { CONTACTS_LINKS, NAV_LINKS } from "@/data";
 import { usePrefersReducedMotion } from "@/hooks";
 
 export function Footer() {
   const reducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLElement | null>(null);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -27,24 +26,6 @@ export function Footer() {
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => window.removeEventListener("pointermove", onMove);
   }, [reducedMotion]);
-
-  useEffect(() => {
-    if (!copied) return;
-    const t = window.setTimeout(() => setCopied(false), 1200);
-    return () => window.clearTimeout(t);
-  }, [copied]);
-
-  const mailto = `mailto:${CONTACTS_LINKS.email}`;
-
-  const onCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(CONTACTS_LINKS.email);
-      setCopied(true);
-    } catch {
-      // Fallback: open mail client if clipboard is blocked
-      window.location.href = mailto;
-    }
-  };
 
   return (
     <footer ref={ref} className="relative mt-24 px-3 pb-10 sm:px-6">
@@ -84,45 +65,12 @@ export function Footer() {
             </p>
 
             <div className="mt-5 flex flex-wrap items-center gap-2">
-              <a
-                href={CONTACTS_LINKS.telegram}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/5 px-3 py-2 text-sm text-white/85 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60"
-              >
-                Telegram <ExternalIcon className="h-4 w-4 text-white/60" />
-              </a>
+              <ContactLink href={CONTACTS_LINKS.telegram} label="Telegram" />
+              <ContactLink href={CONTACTS_LINKS.github} label="GitHub" />
+              <EmailCopyButton email={CONTACTS_LINKS.email} />
 
               <a
-                href={CONTACTS_LINKS.github}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/5 px-3 py-2 text-sm text-white/85 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60"
-              >
-                GitHub <ExternalIcon className="h-4 w-4 text-white/60" />
-              </a>
-
-              <button
-                type="button"
-                onClick={onCopy}
-                className="inline-flex items-center gap-2 rounded-xl bg-white/5 px-3 py-2 text-sm text-white/85 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60"
-                aria-label="Скопировать почту"
-              >
-                {copied ? (
-                  <>
-                    Скопировано{" "}
-                    <CheckIcon className="h-4 w-4 text-emerald-300" />
-                  </>
-                ) : (
-                  <>
-                    {CONTACTS_LINKS.email}{" "}
-                    <CopyIcon className="h-4 w-4 text-white/60" />
-                  </>
-                )}
-              </button>
-
-              <a
-                href={mailto}
+                href={`mailto:${CONTACTS_LINKS.email}`}
                 className="inline-flex items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-neutral-950 transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
               >
                 Написать письмо

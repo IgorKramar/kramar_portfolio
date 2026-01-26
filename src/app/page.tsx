@@ -1,4 +1,4 @@
-import { AchievementsSection, HeroSection, PrinciplesSection } from "@/components";
+import { AchievementsSection, ContactSection, HeroSection, PrinciplesSection } from "@/components";
 
 export default function HomePage() {
   return (
@@ -6,6 +6,7 @@ export default function HomePage() {
       <HeroSection />
       <AchievementsSection />
       <PrinciplesSection />
+      <ContactSection />
     </>
   );
 }

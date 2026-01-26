@@ -3,7 +3,7 @@ import { Badge, Button, Container } from "@/components";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-14 sm:pt-18">
+    <section id="top" className="relative overflow-hidden pt-14 sm:pt-18">
       {/* Background effects */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         {/* fuchsia aurora */}
