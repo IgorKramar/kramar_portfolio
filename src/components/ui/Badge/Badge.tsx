@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from "react";
 import { cx } from "@/utils";
 
-export type BadgeVariant = "neutral" | "fuchsia" | "outline";
+export type BadgeVariant = "neutral" | "accent" | "outline";
 
 export type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
   variant?: BadgeVariant;
@@ -9,15 +9,14 @@ export type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
 
 export function Badge({ variant = "neutral", className, ...rest }: BadgeProps) {
   const base =
-    "inline-flex items-center rounded-full px-3 py-1 text-xs font-medium " +
-    "tracking-tight select-none";
+    "inline-flex items-center rounded-full px-3 py-1 text-xs font-medium tracking-tight select-none";
 
   const variants =
-    variant === "fuchsia"
-      ? "bg-fuchsia-400/12 text-fuchsia-100 ring-1 ring-fuchsia-300/20"
+    variant === "accent"
+      ? "bg-accent-subtle text-accent-text ring-1 ring-accent/20"
       : variant === "outline"
-        ? "bg-transparent text-white/70 ring-1 ring-white/15"
-        : "bg-white/5 text-white/70 ring-1 ring-white/10";
+        ? "bg-transparent text-text-secondary ring-1 ring-border-strong"
+        : "bg-bg-interactive text-text-secondary ring-1 ring-border-default";
 
   return <span {...rest} className={cx(base, variants, className)} />;
 }

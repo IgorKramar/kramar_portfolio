@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { ContactLink, EmailCopyButton } from "@/components";
+import { ContactLink, EmailCopyButton, ThemeToggle } from "@/components";
 import { CONTACTS_LINKS, NAV_LINKS } from "@/data";
 import { usePrefersReducedMotion } from "@/hooks";
 
@@ -29,37 +29,37 @@ export function Footer() {
 
   return (
     <footer ref={ref} className="relative mt-24 px-3 pb-10 sm:px-6">
-      <div className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-neutral-950/35 backdrop-blur-xl shadow-[0_20px_90px_-50px_rgba(0,0,0,0.9)]">
-        {/* background effects */}
+      <div className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border-default bg-bg-elevated backdrop-blur-xl shadow-lg">
+        {/* Background effects */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 overflow-hidden"
         >
-          <div className="absolute inset-0 opacity-70 [background:radial-gradient(850px_circle_at_var(--mx,50%)_var(--my,50%),rgba(56,189,248,0.14),transparent_55%)]" />
-          <div className="absolute -inset-[2px] opacity-55 [background:conic-gradient(from_180deg_at_50%_50%,rgba(168,85,247,0.20),rgba(56,189,248,0.14),rgba(34,197,94,0.10),rgba(168,85,247,0.20))] blur-2xl" />
-          <div className="absolute inset-0 opacity-70 [mask-image:linear-gradient(to_top,black,transparent)] [background:linear-gradient(110deg,transparent,rgba(255,255,255,0.07),transparent)] motion-safe:animate-[sheen_8s_ease-in-out_infinite]" />
+          <div className="absolute inset-0 opacity-70 [background:radial-gradient(850px_circle_at_var(--mx,50%)_var(--my,50%),var(--color-sky-subtle),transparent_55%)]" />
+          <div className="absolute -inset-[2px] opacity-55 [background:conic-gradient(from_180deg_at_50%_50%,var(--color-accent-subtle),var(--color-sky-subtle),var(--color-emerald-subtle),var(--color-accent-subtle))] blur-2xl" />
+          <div className="absolute inset-0 opacity-70 [mask-image:linear-gradient(to_top,black,transparent)] [background:linear-gradient(110deg,transparent,var(--color-bg-interactive),transparent)] motion-safe:animate-[sheen_8s_ease-in-out_infinite]" />
         </div>
 
         <div className="relative grid gap-10 px-5 py-8 sm:grid-cols-12 sm:gap-8 sm:px-8 sm:py-10">
           {/* Left: signature */}
           <div className="sm:col-span-5">
             <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-2xl bg-white/5 ring-1 ring-white/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
-                <span className="text-sm font-semibold tracking-tight text-white">
+              <div className="grid h-10 w-10 place-items-center rounded-2xl bg-bg-interactive ring-1 ring-border-default shadow-[inset_0_0_0_1px_var(--color-border-subtle)]">
+                <span className="text-sm font-semibold tracking-tight text-text-primary">
                   IK
                 </span>
               </div>
               <div className="leading-tight">
-                <div className="text-base font-semibold text-white">
+                <div className="text-base font-semibold text-text-primary">
                   Игорь Крамарь
                 </div>
-                <div className="text-sm text-white/60">
+                <div className="text-sm text-text-tertiary">
                   Senior Frontend / Архитектор UI‑систем
                 </div>
               </div>
             </div>
 
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70">
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-text-secondary">
               Делаю платформенные штуки во фронтенде: UI Kit, дизайн‑токены,
               темизация, доступность, тестирование, качество и DX.
             </p>
@@ -71,7 +71,7 @@ export function Footer() {
 
               <a
                 href={`mailto:${CONTACTS_LINKS.email}`}
-                className="inline-flex items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-neutral-950 transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                className="inline-flex items-center justify-center rounded-xl bg-text-primary px-3 py-2 text-sm font-semibold text-text-inverted transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
               >
                 Написать письмо
               </a>
@@ -82,7 +82,7 @@ export function Footer() {
           <div className="sm:col-span-7 sm:pl-4">
             <div className="grid gap-8 sm:grid-cols-2">
               <div>
-                <div className="text-sm font-semibold text-white">
+                <div className="text-sm font-semibold text-text-primary">
                   Быстрые ссылки
                 </div>
                 <div className="mt-3 grid gap-1">
@@ -90,10 +90,10 @@ export function Footer() {
                     <Link
                       key={l.href}
                       href={l.href}
-                      className="group inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm text-white/75 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60"
+                      className="group inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm text-text-secondary transition hover:bg-bg-interactive hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
                     >
                       <span>{l.label}</span>
-                      <span className="text-white/40 transition group-hover:text-white/70">
+                      <span className="text-text-muted transition group-hover:text-text-secondary">
                         →
                       </span>
                     </Link>
@@ -102,50 +102,44 @@ export function Footer() {
               </div>
 
               <div>
-                <div className="text-sm font-semibold text-white">
+                <div className="text-sm font-semibold text-text-primary">
                   Сайт как демонстрация подхода
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
+                <p className="mt-3 text-sm leading-relaxed text-text-secondary">
                   Быстрый, доступный, без тяжёлых зависимостей. Стиль — стекло,
                   тонкие границы и спокойные микро‑анимации, без шума.
                 </p>
 
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="rounded-xl bg-white/5 px-3 py-2 text-xs text-white/70 ring-1 ring-white/10">
-                    Next.js
-                  </span>
-                  <span className="rounded-xl bg-white/5 px-3 py-2 text-xs text-white/70 ring-1 ring-white/10">
-                    React
-                  </span>
-                  <span className="rounded-xl bg-white/5 px-3 py-2 text-xs text-white/70 ring-1 ring-white/10">
-                    TypeScript
-                  </span>
-                  <span className="rounded-xl bg-white/5 px-3 py-2 text-xs text-white/70 ring-1 ring-white/10">
-                    Tailwind v4
-                  </span>
-                  <span className="rounded-xl bg-white/5 px-3 py-2 text-xs text-white/70 ring-1 ring-white/10">
-                    Biome
-                  </span>
+                  {["Next.js", "React", "TypeScript", "Tailwind v4", "Biome"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-xl bg-bg-interactive px-3 py-2 text-xs text-text-secondary ring-1 ring-border-default"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="relative flex flex-col gap-3 border-t border-white/10 px-5 py-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <div className="relative flex flex-col gap-3 border-t border-border-default px-5 py-5 text-xs text-text-tertiary sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <div>
             © {new Date().getFullYear()} Игорь Крамарь.{" "}
-            <span className="text-white/40">Все права защищены.</span>
+            <span className="text-text-muted">Все права защищены.</span>
           </div>
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <a
               href="/#top"
-              className="rounded-lg px-2 py-1 text-white/60 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60"
+              className="rounded-lg px-2 py-1 text-text-tertiary transition hover:bg-bg-interactive hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
             >
               Наверх
             </a>
-            <span className="text-white/25">•</span>
-            <span className="text-white/50">
+            <span className="text-text-muted">•</span>
+            <span className="text-text-muted">
               Сделано аккуратно и без спешки
             </span>
           </div>

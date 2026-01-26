@@ -1,4 +1,4 @@
-export { CheckIcon, CopyIcon, ExternalIcon } from "./icons";
+export { CheckIcon, CopyIcon, ExternalIcon, MoonIcon, SunIcon } from "./icons";
 export { Container, Footer, Header, Section } from "./layout";
 export {
   AchievementsSection,
@@ -6,5 +6,5 @@ export {
   HeroSection,
   PrinciplesSection,
 } from "./pages";
-export { ContactLink, EmailCopyButton } from "./shared";
+export { ContactLink, EmailCopyButton, ThemeToggle } from "./shared";
 export { Badge, Button, Card, CardShell } from "./ui";

@@ -4,7 +4,7 @@ import type { ButtonSize, ButtonVariant } from "./types";
 export function buttonClasses(variant: ButtonVariant, size: ButtonSize) {
   const base =
     "inline-flex items-center justify-center gap-2 rounded-xl font-semibold outline-none " +
-    "transition focus-visible:ring-2 focus-visible:ring-fuchsia-300/60 focus-visible:ring-offset-0 " +
+    "transition focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-0 " +
     "disabled:opacity-50 disabled:pointer-events-none";
 
   const sizes =
@@ -16,26 +16,15 @@ export function buttonClasses(variant: ButtonVariant, size: ButtonSize) {
 
   const variants =
     variant === "primary"
-      ? [
-          "bg-white text-neutral-950",
-          "hover:bg-white/90",
-          "shadow-[0_18px_60px_-35px_rgba(255,255,255,0.65)]",
-        ].join(" ")
+      ? "bg-text-primary text-text-inverted hover:opacity-90 shadow-lg"
       : variant === "secondary"
-        ? [
-            "bg-white/5 text-white ring-1 ring-white/10 backdrop-blur-xl",
-            "hover:bg-white/10 hover:ring-white/15",
-          ].join(" ")
-        : [
-            "bg-transparent text-white/85",
-            "hover:bg-white/5 hover:text-white",
-          ].join(" ");
+        ? "bg-bg-interactive text-text-primary ring-1 ring-border-default backdrop-blur-xl hover:bg-bg-interactive-hover hover:ring-border-strong"
+        : "bg-transparent text-text-secondary hover:bg-bg-interactive hover:text-text-primary";
 
-  // subtle fuchsia edge highlight for secondary/ghost
   const accent =
     variant === "primary"
       ? ""
-      : "shadow-[inset_0_0_0_1px_rgba(217,70,239,0.08)]";
+      : "shadow-[inset_0_0_0_1px_var(--color-accent-muted)]";
 
   return cx(base, sizes, variants, accent);
 }

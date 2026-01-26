@@ -10,15 +10,14 @@ export function PrincipleCard({ title, description }: PrincipleCardProps) {
     <CardShell>
       <Card className="p-5 sm:p-6">
         <div className="flex items-start gap-3">
-          <span className="mt-0.5 inline-grid h-9 w-9 place-items-center rounded-xl bg-white/5 ring-1 ring-white/10">
-            <CheckIcon className="h-4 w-4 text-emerald-200" />
+          <span className="mt-0.5 inline-grid h-9 w-9 place-items-center rounded-xl bg-bg-interactive ring-1 ring-border-default">
+            <CheckIcon className="h-4 w-4 text-emerald" />
           </span>
-
           <div>
-            <div className="text-base font-semibold tracking-tight text-white">
+            <div className="text-base font-semibold tracking-tight text-text-primary">
               {title}
             </div>
-            <div className="mt-2 text-sm leading-relaxed text-white/70">
+            <div className="mt-2 text-sm leading-relaxed text-text-secondary">
               {description}
             </div>
           </div>
