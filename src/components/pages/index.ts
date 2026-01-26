@@ -1,1 +1,1 @@
-export { HeroSection } from './home';
+export { AchievementsSection, HeroSection } from "./home";
