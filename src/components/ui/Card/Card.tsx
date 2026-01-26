@@ -5,13 +5,19 @@ export interface CardProps {
   children: ReactNode;
   className?: string;
   interactive?: boolean;
+  glow?: boolean;
 }
 
-export function Card({ children, className, interactive = false }: CardProps) {
+export function Card({ 
+  children, 
+  className, 
+  interactive = false,
+  glow = true,
+}: CardProps) {
   return (
     <div
       className={cx(
-        "relative overflow-hidden rounded-2xl",
+        "relative rounded-2xl",
         "border border-border-default bg-bg-elevated backdrop-blur-xl",
         "shadow-lg",
         interactive &&
@@ -19,11 +25,13 @@ export function Card({ children, className, interactive = false }: CardProps) {
         className,
       )}
     >
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute -inset-12 opacity-0 transition-opacity duration-300 [background:radial-gradient(700px_circle_at_20%_15%,var(--color-accent-subtle),transparent_55%)] group-hover:opacity-100" />
-        <div className="absolute -inset-[2px] opacity-60 [background:conic-gradient(from_180deg_at_50%_50%,var(--color-accent-subtle),var(--color-sky-subtle),var(--color-emerald-subtle),var(--color-accent-subtle))] blur-2xl" />
-        <div className="absolute inset-0 opacity-70 [mask-image:linear-gradient(to_bottom,black,transparent)] [background:linear-gradient(115deg,transparent,var(--color-bg-interactive),transparent)] motion-safe:animate-[sheen_10s_ease-in-out_infinite]" />
-      </div>
+      {/* Glow effects — теперь с rounded и без выхода за границы */}
+      {glow && (
+        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+          <div className="absolute inset-0 opacity-0 transition-opacity duration-300 [background:radial-gradient(600px_circle_at_50%_50%,var(--color-accent-subtle),transparent_60%)] group-hover:opacity-100" />
+          <div className="absolute inset-0 opacity-40 [background:radial-gradient(800px_circle_at_30%_20%,var(--color-sky-subtle),transparent_50%)]" />
+        </div>
+      )}
       <div className="relative">{children}</div>
     </div>
   );
