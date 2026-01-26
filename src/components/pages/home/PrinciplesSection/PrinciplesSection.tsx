@@ -1,10 +1,11 @@
+import { FaBolt, FaC, FaChartBar, FaUniversalAccess } from "react-icons/fa6";
 import { Container } from "@/components";
 import { PrincipleCard } from "./components";
 
 const PRINCIPLES = [
   {
     number: "01",
-    icon: "⚙️",
+    icon: <FaC className="text-xl icon-outline text-accent" />,
     title: "Система важнее героизма",
     subtitle: "Масштабируемость",
     description:
@@ -13,7 +14,7 @@ const PRINCIPLES = [
   },
   {
     number: "02",
-    icon: "♿",
+    icon: <FaUniversalAccess className="text-xl icon-outline text-accent" />,
     title: "Доступность — часть качества",
     subtitle: "Инклюзивность",
     description:
@@ -22,7 +23,7 @@ const PRINCIPLES = [
   },
   {
     number: "03",
-    icon: "📊",
+    icon: <FaChartBar className="text-xl icon-outline text-accent" />,
     title: "Качество измеримо",
     subtitle: "Метрики",
     description:
@@ -31,7 +32,7 @@ const PRINCIPLES = [
   },
   {
     number: "04",
-    icon: "⚡",
+    icon: <FaBolt className="text-xl icon-outline text-accent" />,
     title: "DX = скорость бизнеса",
     subtitle: "Продуктивность",
     description:
@@ -62,15 +63,15 @@ export function PrinciplesSection() {
               <span className="text-text-secondary">которым следую</span>
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-text-tertiary">
-              Как я принимаю решения в интерфейсах, архитектуре и качестве.
-              Эти принципы формировались годами и проверены на реальных проектах.
+              Как я принимаю решения в интерфейсах, архитектуре и качестве. Эти
+              принципы формировались годами и проверены на реальных проектах.
             </p>
 
             {/* Quote */}
             <blockquote className="mt-8 border-l-2 border-accent/50 pl-4">
               <p className="text-sm italic text-text-secondary">
-                «Хороший код — это не тот, который работает сегодня,
-                а тот, который легко изменить завтра»
+                «Хороший код — это не тот, который работает сегодня, а тот,
+                который легко изменить завтра»
               </p>
             </blockquote>
           </div>

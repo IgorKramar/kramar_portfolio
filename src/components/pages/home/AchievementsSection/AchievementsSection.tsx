@@ -1,37 +1,47 @@
+import {
+  FaBolt,
+  FaChartLine,
+  FaPalette,
+  FaUniversalAccess,
+} from "react-icons/fa6";
 import { Card, Container } from "@/components";
 import { AchievementCard } from "./components";
 
 const ACHIEVEMENTS = [
   {
-    icon: "📈",
+    icon: <FaChartLine className="text-xl icon-outline text-accent" />,
     metric: "89%",
     metricSuffix: "покрытие",
     label: "Тестирование",
-    description: "С нуля до стабильного регресса в CI. Критичные сценарии под контролем.",
+    description:
+      "С нуля до стабильного регресса в CI. Критичные сценарии под контролем.",
     highlight: "0% → 89%",
   },
   {
-    icon: "🎨",
+    icon: <FaPalette className="text-xl icon-outline text-accent" />,
     metric: "40+",
     metricSuffix: "компонентов",
     label: "Дизайн-система",
-    description: "Токены, темизация, документация. Единый источник правды для всей команды.",
+    description:
+      "Токены, темизация, документация. Единый источник правды для всей команды.",
     highlight: "Tokens → UI",
   },
   {
-    icon: "♿",
+    icon: <FaUniversalAccess className="text-xl icon-outline text-accent" />,
     metric: "AA",
     metricSuffix: "WCAG",
     label: "Доступность",
-    description: "Семантика, клавиатура, фокус-менеджмент, контраст. a11y как часть Definition of Done.",
+    description:
+      "Семантика, клавиатура, фокус-менеджмент, контраст. a11y как часть Definition of Done.",
     highlight: "a11y by default",
   },
   {
-    icon: "⚡",
+    icon: <FaBolt className="text-xl icon-outline text-accent" />,
     metric: "2×",
     metricSuffix: "быстрее",
     label: "Скорость релизов",
-    description: "Quality gates, автоматизация, предсказуемые изменения. Меньше сюрпризов в проде.",
+    description:
+      "Quality gates, автоматизация, предсказуемые изменения. Меньше сюрпризов в проде.",
     highlight: "CI/CD",
   },
 ] as const;
@@ -62,7 +72,8 @@ export function AchievementsSection() {
             <span className="text-text-secondary">системного подхода</span>
           </h2>
           <p className="mt-4 text-base text-text-tertiary sm:text-lg">
-            Измеримые улучшения в качестве, скорости и предсказуемости разработки
+            Измеримые улучшения в качестве, скорости и предсказуемости
+            разработки
           </p>
         </div>
 
@@ -88,10 +99,12 @@ export function AchievementsSection() {
             <div className="flex flex-wrap justify-center gap-8 sm:gap-12">
               {IMPACT_STATS.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-2xl font-semibold text-text-primary sm:text-3xl">
+                  <div className="text-xl icon-outline text-accent font-semibold text-text-primary sm:text-3xl">
                     {stat.value}
                   </div>
-                  <div className="mt-1 text-xs text-text-muted">{stat.label}</div>
+                  <div className="mt-1 text-xs text-text-muted">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>

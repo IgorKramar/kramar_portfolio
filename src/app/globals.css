@@ -124,11 +124,13 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Theme-aware image switching */
-[data-theme="dark"] .theme-light {
-  display: none !important;
+.icon-outline {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;    
 }
 
-[data-theme="light"] .theme-dark {
-  display: none !important;
+.icon-outline:hover {
+  stroke-width: 2;
+  transition: stroke-width 0.3s ease;
 }

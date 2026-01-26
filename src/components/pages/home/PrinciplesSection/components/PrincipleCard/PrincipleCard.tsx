@@ -1,8 +1,9 @@
+import type { ReactNode } from "react";
 import { Card, CardShell } from "@/components";
 
 export interface PrincipleCardProps {
   number: string;
-  icon: string;
+  icon: ReactNode;
   title: string;
   subtitle: string;
   description: string;
@@ -19,7 +20,10 @@ export function PrincipleCard({
 }: PrincipleCardProps) {
   return (
     <CardShell>
-      <Card interactive className="group relative flex h-full flex-col overflow-hidden p-6">
+      <Card
+        interactive
+        className="group relative flex h-full flex-col overflow-hidden p-6"
+      >
         {/* Background number */}
         <div
           aria-hidden
@@ -59,12 +63,6 @@ export function PrincipleCard({
             </span>
           ))}
         </div>
-
-        {/* Hover line — с отступами слева и справа */}
-        <div
-          aria-hidden
-          className="absolute bottom-3 left-6 right-6 h-0.5 scale-x-0 bg-gradient-to-r from-accent via-sky to-emerald transition-transform duration-500 ease-out group-hover:scale-x-100"
-        />
       </Card>
     </CardShell>
   );

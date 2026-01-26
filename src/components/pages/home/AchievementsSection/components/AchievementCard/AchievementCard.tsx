@@ -1,7 +1,8 @@
+import type { ReactNode } from "react";
 import { Card, CardShell } from "@/components";
 
 export interface AchievementCardProps {
-  icon: string;
+  icon: ReactNode;
   metric: string;
   metricSuffix: string;
   label: string;
