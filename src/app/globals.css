@@ -124,21 +124,11 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ========================================
-   Animations
-   ======================================== */
+/* Theme-aware image switching */
+[data-theme="dark"] .theme-light {
+  display: none !important;
+}
 
-@keyframes sheen {
-  0% {
-    transform: translateX(-30%) translateY(-10%);
-    opacity: 0.25;
-  }
-  50% {
-    transform: translateX(30%) translateY(10%);
-    opacity: 0.65;
-  }
-  100% {
-    transform: translateX(-30%) translateY(-10%);
-    opacity: 0.25;
-  }
+[data-theme="light"] .theme-dark {
+  display: none !important;
 }

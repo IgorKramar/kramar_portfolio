@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ThemeToggle } from "@/components";
+import { Button, ThemeToggle } from "@/components";
 import { NAV_LINKS } from "@/data";
 import { usePrefersReducedMotion } from "@/hooks";
 
@@ -104,31 +104,25 @@ export function Header() {
 
             <div className="hidden items-center gap-1 sm:flex">
               {NAV_LINKS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-xl px-3 py-2 text-sm text-text-secondary outline-none transition hover:bg-bg-interactive hover:text-text-primary focus-visible:ring-2 focus-visible:ring-focus-ring"
-                >
-                  {item.label}
-                </Link>
+                <Button key={item.href} asChild variant="ghost" size="sm">
+                  <Link href={item.href}>{item.label}</Link>
+                </Button>
               ))}
 
               <ThemeToggle className="ml-1" />
 
-              <Link
-                href="/#contact"
-                className="ml-1 inline-flex items-center justify-center rounded-xl bg-text-primary px-4 py-2 text-sm font-semibold text-text-inverted outline-none transition hover:opacity-90 focus-visible:ring-2 focus-visible:ring-focus-ring"
-              >
-                Связаться
-              </Link>
+              <Button asChild variant="primary" size="sm" className="ml-1">
+                <Link href="/#contact">Связаться</Link>
+              </Button>
             </div>
 
             <div className="flex items-center gap-2 sm:hidden">
               <ThemeToggle />
 
-              <button
-                type="button"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-bg-interactive text-text-primary ring-1 ring-border-default outline-none transition hover:bg-bg-interactive-hover focus-visible:ring-2 focus-visible:ring-focus-ring"
+              <Button
+                variant="secondary"
+                size="sm"
+                className="h-11 w-11 p-0"
                 aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen((v) => !v)}
@@ -153,7 +147,7 @@ export function Header() {
                     ].join(" ")}
                   />
                 </span>
-              </button>
+              </Button>
             </div>
           </nav>
 
@@ -169,22 +163,28 @@ export function Header() {
               <div className="h-px w-full bg-border-default" />
               <div className="mt-3 grid gap-1">
                 {NAV_LINKS.map((item) => (
-                  <Link
+                  <Button
                     key={item.href}
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="rounded-xl px-3 py-3 text-sm text-text-secondary outline-none transition hover:bg-bg-interactive focus-visible:ring-2 focus-visible:ring-focus-ring"
+                    asChild
+                    variant="ghost"
+                    size="md"
+                    className="justify-start"
                   >
-                    {item.label}
-                  </Link>
+                    <Link href={item.href} onClick={() => setMenuOpen(false)}>
+                      {item.label}
+                    </Link>
+                  </Button>
                 ))}
-                <Link
-                  href="/#contact"
-                  onClick={() => setMenuOpen(false)}
-                  className="mt-1 inline-flex items-center justify-center rounded-xl bg-text-primary px-4 py-3 text-sm font-semibold text-text-inverted outline-none transition hover:opacity-90 focus-visible:ring-2 focus-visible:ring-focus-ring"
+                <Button
+                  asChild
+                  variant="primary"
+                  size="md"
+                  className="mt-1"
                 >
-                  Связаться
-                </Link>
+                  <Link href="/#contact" onClick={() => setMenuOpen(false)}>
+                    Связаться
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>

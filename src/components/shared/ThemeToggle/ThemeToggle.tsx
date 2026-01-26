@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { MoonIcon, SunIcon } from "@/components/icons";
 import { useTheme } from "@/contexts";
 import { cx } from "@/utils";
@@ -9,6 +10,35 @@ export interface ThemeToggleProps {
 }
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Рендерим placeholder до монтирования, чтобы избежать hydration mismatch
+  if (!mounted) {
+    return (
+      <button
+        type="button"
+        className={cx(
+          "inline-flex h-9 w-9 items-center justify-center rounded-xl",
+          "bg-bg-interactive ring-1 ring-border-default",
+          "text-text-secondary",
+          className,
+        )}
+        aria-label="Переключить тему"
+        disabled
+      >
+        <span className="h-4 w-4" />
+      </button>
+    );
+  }
+
+  return <ThemeToggleInner className={className} />;
+}
+
+function ThemeToggleInner({ className }: ThemeToggleProps) {
   const { theme, toggleTheme } = useTheme();
 
   return (

@@ -2,9 +2,17 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { ContactLink, EmailCopyButton, ThemeToggle } from "@/components";
+import {
+  Badge,
+  Button,
+  ContactLink,
+  EmailCopyButton,
+  ThemeToggle,
+} from "@/components";
 import { CONTACTS_LINKS, NAV_LINKS } from "@/data";
 import { usePrefersReducedMotion } from "@/hooks";
+
+const TECH_STACK = ["Next.js", "React", "TypeScript", "Tailwind v4", "Biome"];
 
 export function Footer() {
   const reducedMotion = usePrefersReducedMotion();
@@ -68,13 +76,12 @@ export function Footer() {
               <ContactLink href={CONTACTS_LINKS.telegram} label="Telegram" />
               <ContactLink href={CONTACTS_LINKS.github} label="GitHub" />
               <EmailCopyButton email={CONTACTS_LINKS.email} />
+            </div>
 
-              <a
-                href={`mailto:${CONTACTS_LINKS.email}`}
-                className="inline-flex items-center justify-center rounded-xl bg-text-primary px-3 py-2 text-sm font-semibold text-text-inverted transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
-              >
-                Написать письмо
-              </a>
+            <div className="mt-3">
+              <Button asChild variant="primary" size="sm">
+                <a href={`mailto:${CONTACTS_LINKS.email}`}>Написать письмо</a>
+              </Button>
             </div>
           </div>
 
@@ -85,18 +92,19 @@ export function Footer() {
                 <div className="text-sm font-semibold text-text-primary">
                   Быстрые ссылки
                 </div>
-                <div className="mt-3 grid gap-1">
+                <div className="mt-3 flex flex-col items-start gap-1">
                   {NAV_LINKS.map((l) => (
-                    <Link
+                    <Button
                       key={l.href}
-                      href={l.href}
-                      className="group inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm text-text-secondary transition hover:bg-bg-interactive hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+                      asChild
+                      variant="ghost"
+                      size="sm"
                     >
-                      <span>{l.label}</span>
-                      <span className="text-text-muted transition group-hover:text-text-secondary">
-                        →
-                      </span>
-                    </Link>
+                      <Link href={l.href}>
+                        {l.label}
+                        <span className="text-text-muted">→</span>
+                      </Link>
+                    </Button>
                   ))}
                 </div>
               </div>
@@ -111,13 +119,10 @@ export function Footer() {
                 </p>
 
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {["Next.js", "React", "TypeScript", "Tailwind v4", "Biome"].map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-xl bg-bg-interactive px-3 py-2 text-xs text-text-secondary ring-1 ring-border-default"
-                    >
+                  {TECH_STACK.map((tech) => (
+                    <Badge key={tech} variant="neutral">
                       {tech}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
               </div>
@@ -132,12 +137,9 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <a
-              href="/#top"
-              className="rounded-lg px-2 py-1 text-text-tertiary transition hover:bg-bg-interactive hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
-            >
-              Наверх
-            </a>
+            <Button asChild variant="ghost" size="sm" className="h-auto px-2 py-1">
+              <a href="/#top">Наверх</a>
+            </Button>
             <span className="text-text-muted">•</span>
             <span className="text-text-muted">
               Сделано аккуратно и без спешки

@@ -16,10 +16,22 @@ export function buttonClasses(variant: ButtonVariant, size: ButtonSize) {
 
   const variants =
     variant === "primary"
-      ? "bg-text-primary text-text-inverted hover:opacity-90 shadow-lg"
+      ? [
+          "bg-transparent text-text-primary",
+          "ring-1 ring-border-strong",
+          "hover:bg-bg-interactive hover:ring-text-primary",
+          "shadow-[0_0_20px_-5px_var(--color-accent-subtle)]",
+        ].join(" ")
       : variant === "secondary"
-        ? "bg-bg-interactive text-text-primary ring-1 ring-border-default backdrop-blur-xl hover:bg-bg-interactive-hover hover:ring-border-strong"
-        : "bg-transparent text-text-secondary hover:bg-bg-interactive hover:text-text-primary";
+        ? [
+            "bg-bg-interactive text-text-primary",
+            "ring-1 ring-border-default backdrop-blur-xl",
+            "hover:bg-bg-interactive-hover hover:ring-border-strong",
+          ].join(" ")
+        : [
+            "bg-transparent text-text-secondary",
+            "hover:bg-bg-interactive hover:text-text-primary",
+          ].join(" ");
 
   const accent =
     variant === "primary"
