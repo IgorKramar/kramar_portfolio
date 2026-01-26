@@ -124,7 +124,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.icon-outline {
+/* .icon-outline {
   stroke: currentColor;
   stroke-width: 1.5;
   fill: none;    
@@ -133,4 +133,4 @@ body {
 .icon-outline:hover {
   stroke-width: 2;
   transition: stroke-width 0.3s ease;
-}
+} */

@@ -4,6 +4,7 @@ import { Footer, Header } from "@/components";
 import { ThemeProvider } from "@/contexts";
 import { themeScript } from "./theme-script";
 import "./globals.css";
+import { SmoothScrollProvider } from "@/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -109,6 +110,7 @@ export default function RootLayout({
           <Header />
           <main id="main">{children}</main>
           <Footer />
+          <SmoothScrollProvider />
         </ThemeProvider>
       </body>
     </html>

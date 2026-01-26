@@ -5,7 +5,7 @@ import { PrincipleCard } from "./components";
 const PRINCIPLES = [
   {
     number: "01",
-    icon: <FaC className="text-xl icon-outline text-accent" />,
+    icon: <FaC className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
     title: "Система важнее героизма",
     subtitle: "Масштабируемость",
     description:
@@ -14,7 +14,7 @@ const PRINCIPLES = [
   },
   {
     number: "02",
-    icon: <FaUniversalAccess className="text-xl icon-outline text-accent" />,
+    icon: <FaUniversalAccess className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
     title: "Доступность — часть качества",
     subtitle: "Инклюзивность",
     description:
@@ -23,7 +23,7 @@ const PRINCIPLES = [
   },
   {
     number: "03",
-    icon: <FaChartBar className="text-xl icon-outline text-accent" />,
+    icon: <FaChartBar className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
     title: "Качество измеримо",
     subtitle: "Метрики",
     description:
@@ -32,7 +32,7 @@ const PRINCIPLES = [
   },
   {
     number: "04",
-    icon: <FaBolt className="text-xl icon-outline text-accent" />,
+    icon: <FaBolt className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
     title: "DX = скорость бизнеса",
     subtitle: "Продуктивность",
     description:

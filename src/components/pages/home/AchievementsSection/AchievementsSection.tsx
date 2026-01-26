@@ -9,7 +9,7 @@ import { AchievementCard } from "./components";
 
 const ACHIEVEMENTS = [
   {
-    icon: <FaChartLine className="text-xl icon-outline text-accent" />,
+    icon: <FaChartLine className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
     metric: "89%",
     metricSuffix: "покрытие",
     label: "Тестирование",
@@ -18,7 +18,7 @@ const ACHIEVEMENTS = [
     highlight: "0% → 89%",
   },
   {
-    icon: <FaPalette className="text-xl icon-outline text-accent" />,
+    icon: <FaPalette className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
     metric: "40+",
     metricSuffix: "компонентов",
     label: "Дизайн-система",
@@ -27,7 +27,7 @@ const ACHIEVEMENTS = [
     highlight: "Tokens → UI",
   },
   {
-    icon: <FaUniversalAccess className="text-xl icon-outline text-accent" />,
+    icon: <FaUniversalAccess className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
     metric: "AA",
     metricSuffix: "WCAG",
     label: "Доступность",
@@ -36,7 +36,7 @@ const ACHIEVEMENTS = [
     highlight: "a11y by default",
   },
   {
-    icon: <FaBolt className="text-xl icon-outline text-accent" />,
+    icon: <FaBolt className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
     metric: "2×",
     metricSuffix: "быстрее",
     label: "Скорость релизов",
@@ -99,7 +99,7 @@ export function AchievementsSection() {
             <div className="flex flex-wrap justify-center gap-8 sm:gap-12">
               {IMPACT_STATS.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-xl icon-outline text-accent font-semibold text-text-primary sm:text-3xl">
+                  <div className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300 font-semibold text-text-primary sm:text-3xl">
                     {stat.value}
                   </div>
                   <div className="mt-1 text-xs text-text-muted">

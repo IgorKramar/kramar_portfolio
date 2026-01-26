@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { cx } from "@/utils";
 import { Container } from "../Container";
 
+
 export interface SectionProps {
   children: ReactNode;
   id?: string;
