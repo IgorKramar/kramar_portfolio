@@ -1,9 +1,20 @@
-import { Container } from "@/components";
+import { Section } from "@/components/layout";
 
 export default function HomePage() {
   return (
-    <Container className="py-16">
-      <h1 className="text-4xl font-semibold text-white">Игорь Крамарь</h1>
-    </Container>
+    <>
+      <Section
+        id="principles"
+        title="Принципы"
+        description="Как я подхожу к качеству, доступности и дизайн‑системам."
+        size="narrow"
+      >
+        <div className="text-white/80">Контент…</div>
+      </Section>
+
+      <Section id="contact" title="Контакты" tone="tight">
+        <div className="text-white/80">tg / email / github…</div>
+      </Section>
+    </>
   );
 }
