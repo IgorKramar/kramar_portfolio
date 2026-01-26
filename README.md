@@ -105,6 +105,6 @@ pnpm start
 Игорь Крамарь  
 Senior Frontend / Архитектор UI‑систем
 
-- Telegram: см. `src/data/contacts.ts`
+- Telegram: https://t.me/spider_HH_jerusalem
 - GitHub: https://github.com/IgorKramar
 - Email: i@ikramar.ru
