@@ -74,7 +74,7 @@ export function AchievementsSection() {
         </div>
 
         {/* Bottom impact bar */}
-        <Card className="mt-10 sm:mt-14">
+        <Card className="mt-10 sm:mt-14" glow={false}>
           <div className="flex flex-col items-center justify-between gap-6 px-6 py-6 sm:flex-row sm:px-10 sm:py-8">
             <div className="text-center sm:text-left">
               <div className="text-lg font-semibold text-text-primary sm:text-xl">
