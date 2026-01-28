@@ -6,5 +6,5 @@ export {
   HeroSection,
   PrinciplesSection,
 } from "./pages";
-export { ContactLink, EmailCopyButton, ThemeToggle } from "./shared";
+export { ContactLink, EmailCopyButton, LocaleToggle, ThemeToggle } from "./shared";
 export { Badge, Button, Card, CardShell, Logo } from "./ui";

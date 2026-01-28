@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { MoonIcon, SunIcon } from "@/components/icons";
-import { useTheme } from "@/contexts";
+import { useLocale, useTheme } from "@/contexts";
 import { cx } from "@/utils";
 
 export interface ThemeToggleProps {
@@ -16,7 +16,6 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     setMounted(true);
   }, []);
 
-  // Рендерим placeholder до монтирования, чтобы избежать hydration mismatch
   if (!mounted) {
     return (
       <button
@@ -25,9 +24,9 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
           "inline-flex h-9 w-9 items-center justify-center rounded-xl",
           "bg-bg-interactive ring-1 ring-border-default",
           "text-text-secondary",
-          className,
+          className
         )}
-        aria-label="Переключить тему"
+        aria-label="Toggle theme"
         disabled
       >
         <span className="h-4 w-4" />
@@ -40,6 +39,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 
 function ThemeToggleInner({ className }: ThemeToggleProps) {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLocale();
 
   return (
     <button
@@ -51,9 +51,9 @@ function ThemeToggleInner({ className }: ThemeToggleProps) {
         "text-text-secondary",
         "transition hover:bg-bg-interactive-hover hover:text-text-primary",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring",
-        className,
+        className
       )}
-      aria-label={theme === "dark" ? "Включить светлую тему" : "Включить тёмную тему"}
+      aria-label={theme === "dark" ? t.common.lightTheme : t.common.darkTheme}
     >
       {theme === "dark" ? (
         <SunIcon className="h-4 w-4" />

@@ -1,47 +1,28 @@
+"use client";
+
 import { FaBolt, FaCubes, FaChartBar, FaUniversalAccess } from "react-icons/fa6";
 import { Container } from "@/components";
+import { useTranslation } from "@/contexts";
 import { PrincipleCard } from "./components";
 
-const PRINCIPLES = [
-  {
-    number: "01",
-    icon: <FaCubes className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
-    title: "Система важнее героизма",
-    subtitle: "Масштабируемость",
-    description:
-      "Фиксирую правила: токены, контракты компонентов, гайдлайны. Команда двигается быстрее и предсказуемее.",
-    keywords: ["Design Tokens", "API Contracts", "Guidelines"],
-  },
-  {
-    number: "02",
-    icon: <FaUniversalAccess className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
-    title: "Доступность — часть качества",
-    subtitle: "Инклюзивность",
-    description:
-      "Семантика, клавиатура, фокус‑состояния, контраст. Это уменьшает баги и улучшает UX всем пользователям.",
-    keywords: ["WCAG 2.1", "Screen Readers", "Keyboard Nav"],
-  },
-  {
-    number: "03",
-    icon: <FaChartBar className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
-    title: "Качество измеримо",
-    subtitle: "Метрики",
-    description:
-      "Типы, линтеры, тесты, регрессии и quality gates — чтобы релизы были рутиной, а не лотереей.",
-    keywords: ["TypeScript", "Testing", "CI/CD"],
-  },
-  {
-    number: "04",
-    icon: <FaBolt className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
-    title: "DX = скорость бизнеса",
-    subtitle: "Продуктивность",
-    description:
-      "Понятные API компонентов, документация, шаблоны и CI: меньше трения, меньше контекста, больше результата.",
-    keywords: ["Storybook", "Documentation", "Templates"],
-  },
-] as const;
+const ICONS = [
+  <FaCubes key="cubes" className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
+  <FaUniversalAccess key="access" className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
+  <FaChartBar key="chart" className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
+  <FaBolt key="bolt" className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
+];
+
+const NUMBERS = ["01", "02", "03", "04"];
 
 export function PrinciplesSection() {
+  const t = useTranslation();
+
+  const principles = t.principles.items.map((item, index) => ({
+    ...item,
+    icon: ICONS[index],
+    number: NUMBERS[index],
+  }));
+
   return (
     <section id="principles" className="relative py-12 sm:py-16">
       {/* Background */}
@@ -55,21 +36,19 @@ export function PrinciplesSection() {
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <div className="text-sm font-medium uppercase tracking-widest text-accent">
-              Философия
+              {t.principles.label}
             </div>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl lg:text-5xl">
-              Принципы, которым следую
+              {t.principles.title}
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-text-tertiary">
-              Как я принимаю решения в интерфейсах, архитектуре и качестве. Эти
-              принципы формировались годами и проверены на реальных проектах.
+              {t.principles.description}
             </p>
 
             {/* Quote */}
             <blockquote className="mt-8 border-l-2 border-accent/50 pl-4">
               <p className="text-sm italic text-text-secondary">
-                «Хороший код — это не тот, который работает сегодня, а тот,
-                который легко изменить завтра»
+                {t.principles.quote}
               </p>
             </blockquote>
           </div>
@@ -77,7 +56,7 @@ export function PrinciplesSection() {
           {/* Cards */}
           <div className="lg:col-span-7">
             <div className="grid gap-4 sm:grid-cols-2">
-              {PRINCIPLES.map((principle) => (
+              {principles.map((principle) => (
                 <PrincipleCard key={principle.number} {...principle} />
               ))}
             </div>

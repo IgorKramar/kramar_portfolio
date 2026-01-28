@@ -1,15 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import { Card, Container } from "@/components";
+import { useTranslation } from "@/contexts";
 
-const STATS = [
-  { value: "7+", label: "лет опыта" },
-  { value: "50+", label: "проектов" },
-  { value: "12+", label: "UI-систем" },
-];
-
+const STATS_KEYS = ["experience", "projects", "systems"] as const;
+const STATS_VALUES = ["7+", "50+", "12+"];
 const STACK = ["React", "TypeScript", "Next.js", "Design Tokens", "a11y"];
 
 export function HeroSection() {
+  const t = useTranslation();
+
+  const stats = STATS_KEYS.map((key, i) => ({
+    value: STATS_VALUES[i],
+    label: t.hero.stats[key],
+  }));
+
   return (
     <section id="top" className="relative -mt-24 overflow-hidden pt-42 sm:pt-52">
       {/* Background effects */}
@@ -21,29 +27,27 @@ export function HeroSection() {
 
       <Container className="relative">
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Левая часть — текст */}
+          {/* Left — text */}
           <div className="order-2 lg:order-1">
             <div className="text-sm font-medium uppercase tracking-widest text-accent">
-              Senior Frontend Engineer
+              {t.hero.role}
             </div>
 
             <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
-              Игорь Крамарь
+              {t.hero.name}
             </h1>
 
             <p className="mt-4 text-lg font-medium text-text-secondary sm:text-xl">
-              Архитектор UI‑систем
+              {t.hero.subtitle}
             </p>
 
             <p className="mt-6 max-w-lg text-base leading-relaxed text-text-tertiary">
-              Проектирую дизайн-системы, внедряю токены и темизацию, настраиваю
-              quality gates. Делаю так, чтобы интерфейсы собирались быстро,
-              выглядели консистентно и работали для всех.
+              {t.hero.description}
             </p>
 
-            {/* Статистика */}
+            {/* Stats */}
             <div className="mt-8 flex flex-wrap gap-8">
-              {STATS.map((stat) => (
+              {stats.map((stat) => (
                 <div key={stat.label}>
                   <div className="text-2xl font-semibold text-text-primary sm:text-3xl">
                     {stat.value}
@@ -54,18 +58,17 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Правая часть — портрет */}
+          {/* Right — portrait */}
           <div className="order-1 flex justify-center lg:order-2">
             <div className="relative">
-              {/* Glow за портретом */}
+              {/* Glow */}
               <div
                 aria-hidden
                 className="absolute -inset-4 rounded-full opacity-60 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),var(--color-sky-subtle),transparent)]"
               />
 
-              {/* Контейнер с эффектами */}
               <div className="relative">
-                {/* Декоративное кольцо */}
+                {/* Decorative rings */}
                 <div
                   aria-hidden
                   className="absolute -inset-2 rounded-full border border-border-default opacity-50"
@@ -75,18 +78,18 @@ export function HeroSection() {
                   className="absolute -inset-4 rounded-full border border-border-subtle opacity-30"
                 />
 
-                {/* Изображение — уменьшенный размер */}
+                {/* Image */}
                 <div className="relative h-52 w-52 overflow-hidden rounded-full ring-1 ring-border-default sm:h-64 sm:w-64 lg:h-72 lg:w-72">
                   <Image
                     src="/hero.jpg"
-                    alt="Игорь Крамарь"
+                    alt={t.hero.name}
                     fill
                     className="object-cover object-center"
                     priority
                   />
                 </div>
 
-                {/* Floating accent dots */}
+                {/* Floating dots */}
                 <div
                   aria-hidden
                   className="absolute -right-1 top-6 h-2.5 w-2.5 rounded-full bg-accent/60 blur-[2px]"
@@ -100,12 +103,12 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Карточка со стеком и статусом */}
+        {/* Card with stack and status */}
         <Card className="mt-10 p-5 sm:mt-12 sm:p-6">
           <div className="grid gap-6 sm:grid-cols-2">
             <div>
               <div className="text-xs font-medium uppercase tracking-widest text-text-muted">
-                Основной стек
+                {t.hero.stack}
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 {STACK.map((tech) => (
@@ -121,7 +124,7 @@ export function HeroSection() {
 
             <div>
               <div className="text-xs font-medium uppercase tracking-widest text-text-muted">
-                Статус
+                {t.hero.status}
               </div>
               <div className="mt-3 flex items-center gap-2">
                 <span className="relative flex h-2.5 w-2.5">
@@ -129,11 +132,11 @@ export function HeroSection() {
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald" />
                 </span>
                 <span className="text-sm text-text-primary">
-                  Открыт к предложениям
+                  {t.hero.statusText}
                 </span>
               </div>
               <div className="mt-2 text-sm text-text-tertiary">
-                Удалёнка или гибрид · Москва ±3 часа
+                {t.hero.availability}
               </div>
             </div>
           </div>

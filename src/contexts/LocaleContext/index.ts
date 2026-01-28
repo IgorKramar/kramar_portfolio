@@ -1,2 +1,1 @@
-export { ThemeProvider, useTheme } from './ThemeContext';
 export { LocaleProvider, useLocale, useTranslation } from "./LocaleContext";

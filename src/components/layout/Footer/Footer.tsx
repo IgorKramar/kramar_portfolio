@@ -11,7 +11,8 @@ import {
   FaTelegram,
 } from "react-icons/fa6";
 import { Badge, Button, Container, ThemeToggle } from "@/components";
-import { CONTACTS_LINKS, NAV_LINKS } from "@/data";
+import { useLocale } from "@/contexts";
+import { CONTACTS_LINKS } from "@/data";
 import { usePrefersReducedMotion } from "@/hooks";
 
 const TECH_STACK = ["Next.js", "React", "TypeScript", "Tailwind", "Biome"];
@@ -20,6 +21,7 @@ export function Footer() {
   const reducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLDivElement | null>(null);
   const [copied, setCopied] = useState(false);
+  const { t, locale } = useLocale();
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -40,8 +42,8 @@ export function Footer() {
 
   useEffect(() => {
     if (!copied) return;
-    const t = setTimeout(() => setCopied(false), 1500);
-    return () => clearTimeout(t);
+    const timeout = setTimeout(() => setCopied(false), 1500);
+    return () => clearTimeout(timeout);
   }, [copied]);
 
   const handleCopyEmail = async () => {
@@ -53,6 +55,18 @@ export function Footer() {
     }
   };
 
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const name = locale === "ru" ? "Игорь Крамарь" : "Igor Kramar";
+
+  const navLinks = [
+    { href: "/", label: t.nav.home },
+    { href: "/projects", label: t.nav.projects },
+    { href: "/experience", label: t.nav.experience },
+  ];
+
   return (
     <footer className="relative mt-16 pb-6 sm:mt-24 sm:pb-8">
       <Container>
@@ -60,7 +74,7 @@ export function Footer() {
           ref={ref}
           className="relative overflow-hidden rounded-2xl border border-border-default bg-bg-elevated shadow-lg backdrop-blur-xl sm:rounded-3xl"
         >
-          {/* Background effects - скрыты на мобилке */}
+          {/* Background effects - hidden on mobile */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 hidden overflow-hidden sm:block"
@@ -77,7 +91,7 @@ export function Footer() {
 
           {/* Main content */}
           <div className="relative px-4 py-6 sm:px-10 sm:py-12">
-            {/* Mobile: Stacked layout */}
+            {/* Mobile layout */}
             <div className="flex flex-col gap-6 sm:hidden">
               {/* Brand */}
               <div className="text-center">
@@ -89,15 +103,15 @@ export function Footer() {
                   </div>
                   <div className="text-left">
                     <div className="text-sm font-semibold text-text-primary">
-                      Игорь Крамарь
+                      {name}
                     </div>
                     <div className="text-xs text-text-tertiary">
-                      Frontend / UI Architect
+                      {t.footer.role}
                     </div>
                   </div>
                 </div>
                 <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-text-secondary">
-                  UI Kit, токены, темизация, a11y, тестирование и DX.
+                  {t.footer.description}
                 </p>
               </div>
 
@@ -106,7 +120,7 @@ export function Footer() {
                 <Button asChild variant="primary" size="sm">
                   <a href={`mailto:${CONTACTS_LINKS.email}`} className="group">
                     <FaEnvelope className="h-3.5 w-3.5" />
-                    <span>Написать</span>
+                    <span>{t.footer.write}</span>
                   </a>
                 </Button>
               </div>
@@ -115,10 +129,10 @@ export function Footer() {
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-widest text-text-muted">
-                    Навигация
+                    {t.footer.navigation}
                   </div>
                   <nav className="mt-2 flex flex-col gap-1">
-                    {NAV_LINKS.map((l) => (
+                    {navLinks.map((l) => (
                       <Link
                         key={l.href}
                         href={l.href}
@@ -132,7 +146,7 @@ export function Footer() {
 
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-widest text-text-muted">
-                    Контакты
+                    {t.footer.contacts}
                   </div>
                   <div className="mt-2 flex flex-col gap-1">
                     <a
@@ -142,7 +156,7 @@ export function Footer() {
                       className="inline-flex items-center justify-center gap-1.5 text-sm text-text-secondary transition hover:text-text-primary"
                     >
                       <FaTelegram className="h-3.5 w-3.5" />
-                      <span>Telegram</span>
+                      <span>{t.common.telegram}</span>
                     </a>
                     <a
                       href={CONTACTS_LINKS.github}
@@ -151,7 +165,7 @@ export function Footer() {
                       className="inline-flex items-center justify-center gap-1.5 text-sm text-text-secondary transition hover:text-text-primary"
                     >
                       <FaGithub className="h-3.5 w-3.5" />
-                      <span>GitHub</span>
+                      <span>{t.common.github}</span>
                     </a>
                     <button
                       type="button"
@@ -164,7 +178,7 @@ export function Footer() {
                         <FaEnvelope className="h-3.5 w-3.5" />
                       )}
                       <span className={copied ? "text-emerald" : ""}>
-                        {copied ? "Скопировано!" : "Email"}
+                        {copied ? t.contact.copied : t.common.email}
                       </span>
                     </button>
                   </div>
@@ -174,11 +188,10 @@ export function Footer() {
               {/* About site */}
               <div className="text-center">
                 <div className="text-xs font-semibold uppercase tracking-widest text-text-muted">
-                  Этот сайт
+                  {t.footer.aboutSite}
                 </div>
                 <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-text-secondary">
-                  Быстрый, доступный, без тяжёлых зависимостей. Стекло, тонкие
-                  границы, спокойные анимации.
+                  {t.footer.aboutSiteText}
                 </p>
                 <div className="mt-3 flex flex-wrap justify-center gap-1.5">
                   {TECH_STACK.map((tech) => (
@@ -194,7 +207,7 @@ export function Footer() {
                   className="mt-3 inline-flex items-center justify-center gap-1.5 text-sm text-text-muted transition hover:text-text-primary"
                 >
                   <FaCode className="h-3.5 w-3.5" />
-                  <span>Исходный код</span>
+                  <span>{t.footer.sourceCode}</span>
                 </a>
               </div>
 
@@ -204,7 +217,7 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Desktop: Grid layout */}
+            {/* Desktop layout */}
             <div className="hidden gap-8 sm:grid lg:grid-cols-12">
               {/* Left: Brand */}
               <div className="lg:col-span-4">
@@ -215,18 +228,15 @@ export function Footer() {
                     </span>
                   </div>
                   <div>
-                    <div className="font-semibold text-text-primary">
-                      Игорь Крамарь
-                    </div>
+                    <div className="font-semibold text-text-primary">{name}</div>
                     <div className="text-sm text-text-tertiary">
-                      Senior Frontend / UI Architect
+                      {t.footer.role}
                     </div>
                   </div>
                 </div>
 
                 <p className="mt-5 max-w-xs text-sm leading-relaxed text-text-secondary">
-                  UI Kit, дизайн‑токены, темизация, доступность, тестирование и
-                  DX.
+                  {t.footer.description}
                 </p>
 
                 <div className="mt-6">
@@ -236,7 +246,7 @@ export function Footer() {
                       className="group"
                     >
                       <FaEnvelope className="h-3.5 w-3.5 transition-transform group-hover:scale-110" />
-                      <span>Написать</span>
+                      <span>{t.footer.write}</span>
                     </a>
                   </Button>
                 </div>
@@ -246,10 +256,10 @@ export function Footer() {
               <div className="grid grid-cols-2 gap-8 lg:col-span-4">
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-widest text-text-muted">
-                    Навигация
+                    {t.footer.navigation}
                   </div>
                   <nav className="mt-4 flex flex-col gap-2">
-                    {NAV_LINKS.map((l) => (
+                    {navLinks.map((l) => (
                       <Link
                         key={l.href}
                         href={l.href}
@@ -264,7 +274,7 @@ export function Footer() {
 
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-widest text-text-muted">
-                    Контакты
+                    {t.footer.contacts}
                   </div>
                   <div className="mt-4 flex flex-col gap-2">
                     <a
@@ -274,7 +284,7 @@ export function Footer() {
                       className="group flex items-center gap-2 text-sm text-text-secondary transition hover:text-text-primary"
                     >
                       <FaTelegram className="h-4 w-4 text-text-muted transition group-hover:text-sky" />
-                      <span>Telegram</span>
+                      <span>{t.common.telegram}</span>
                     </a>
                     <a
                       href={CONTACTS_LINKS.github}
@@ -283,7 +293,7 @@ export function Footer() {
                       className="group flex items-center gap-2 text-sm text-text-secondary transition hover:text-text-primary"
                     >
                       <FaGithub className="h-4 w-4 text-text-muted transition group-hover:text-text-primary" />
-                      <span>GitHub</span>
+                      <span>{t.common.github}</span>
                     </a>
                     <button
                       type="button"
@@ -296,7 +306,7 @@ export function Footer() {
                         <FaEnvelope className="h-4 w-4 text-text-muted transition group-hover:text-accent" />
                       )}
                       <span className={copied ? "text-emerald" : ""}>
-                        {copied ? "Скопировано!" : CONTACTS_LINKS.email}
+                        {copied ? t.contact.copied : CONTACTS_LINKS.email}
                       </span>
                     </button>
                   </div>
@@ -306,11 +316,10 @@ export function Footer() {
               {/* Right: About site */}
               <div className="lg:col-span-4">
                 <div className="text-xs font-semibold uppercase tracking-widest text-text-muted">
-                  Этот сайт
+                  {t.footer.aboutSite}
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                  Быстрый, доступный, без тяжёлых зависимостей. Стекло, тонкие
-                  границы, спокойные анимации.
+                  {t.footer.aboutSiteText}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {TECH_STACK.map((tech) => (
@@ -326,7 +335,7 @@ export function Footer() {
                   className="group mt-4 inline-flex items-center gap-2 text-sm text-text-muted transition hover:text-text-primary"
                 >
                   <FaCode className="h-3.5 w-3.5 transition group-hover:text-accent" />
-                  <span>Исходный код</span>
+                  <span>{t.footer.sourceCode}</span>
                 </a>
               </div>
             </div>
@@ -336,20 +345,21 @@ export function Footer() {
           <div className="relative border-t border-border-default px-4 py-3 sm:px-10 sm:py-4">
             <div className="flex items-center justify-between gap-3">
               <div className="text-xs text-text-muted sm:text-sm">
-                © {new Date().getFullYear()} Игорь Крамарь
+                © {new Date().getFullYear()} {t.footer.copyright}
               </div>
 
               <div className="flex items-center gap-2">
                 <span className="hidden sm:block">
                   <ThemeToggle />
                 </span>
-                <a
-                  href="#top"
+                <button
+                  type="button"
+                  onClick={handleScrollToTop}
                   className="group flex h-8 w-8 items-center justify-center rounded-lg bg-bg-interactive ring-1 ring-border-default transition hover:bg-bg-interactive-hover sm:h-9 sm:w-9 sm:rounded-xl"
-                  aria-label="Наверх"
+                  aria-label={t.common.toTop}
                 >
                   <FaArrowUp className="h-3 w-3 text-text-secondary transition-transform group-hover:-translate-y-0.5 sm:h-3.5 sm:w-3.5" />
-                </a>
+                </button>
               </div>
             </div>
           </div>

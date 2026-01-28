@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Footer, Header } from "@/components";
-import { ThemeProvider } from "@/contexts";
+import { LocaleProvider, ThemeProvider } from "@/contexts";
 import { themeScript } from "./theme-script";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/providers";
@@ -100,17 +100,19 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <head>
-         {/* biome-ignore lint/security/noDangerouslySetInnerHtml: Inline theme script to prevent FOUC */}
+        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: Inline theme script to prevent FOUC */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-          <Header />
-          <main id="main">{children}</main>
-          <Footer />
-          <SmoothScrollProvider />
+          <LocaleProvider>
+            <Header />
+            <main id="main">{children}</main>
+            <Footer />
+            <SmoothScrollProvider />
+          </LocaleProvider>
         </ThemeProvider>
       </body>
     </html>

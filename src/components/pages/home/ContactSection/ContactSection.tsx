@@ -1,13 +1,18 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { Button, ContactLink, Container, EmailCopyButton } from "@/components";
+import { useEffect, useRef, useState } from "react";
+import { Button, ContactLink, Container } from "@/components";
+import { CheckIcon, CopyIcon } from "@/components/icons";
+import { useTranslation } from "@/contexts";
 import { CONTACTS_LINKS } from "@/data";
 import { usePrefersReducedMotion } from "@/hooks";
+import { cx } from "@/utils";
 
 export function ContactSection() {
   const reducedMotion = usePrefersReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
+  const [copied, setCopied] = useState(false);
+  const t = useTranslation();
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -26,12 +31,27 @@ export function ContactSection() {
     return () => el.removeEventListener("pointermove", onMove);
   }, [reducedMotion]);
 
+  useEffect(() => {
+    if (!copied) return;
+    const timeout = setTimeout(() => setCopied(false), 1500);
+    return () => clearTimeout(timeout);
+  }, [copied]);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTACTS_LINKS.email);
+      setCopied(true);
+    } catch {
+      window.location.href = `mailto:${CONTACTS_LINKS.email}`;
+    }
+  };
+
   return (
-      <section
-        ref={sectionRef}
-        id="contact"
-        className="relative py-16 sm:py-20"
-      >
+    <section
+      ref={sectionRef}
+      id="contact"
+      className="relative py-16 sm:py-20"
+    >
       {/* Background effects */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-0 h-125 w-200 -translate-x-1/2 rounded-full opacity-40 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),transparent)]" />
@@ -47,17 +67,17 @@ export function ContactSection() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald" />
             </span>
-            Открыт к предложениям
+            {t.contact.badge}
           </div>
 
           <h2 className="mt-6 text-4xl font-semibold tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
-            Давайте работать
+            {t.contact.title}
             <br />
-            <span className="text-text-secondary">вместе</span>
+            <span className="text-text-secondary">{t.contact.titleAccent}</span>
           </h2>
 
           <p className="mx-auto mt-4 max-w-md text-base text-text-tertiary sm:text-lg">
-            Ищу интересные проекты, где важны качество, система и внимание к деталям
+            {t.contact.description}
           </p>
         </div>
 
@@ -86,7 +106,7 @@ export function ContactSection() {
               {/* Email block */}
               <div className="text-center">
                 <div className="text-xs font-medium uppercase tracking-widest text-text-muted">
-                  Напишите мне
+                  {t.contact.emailLabel}
                 </div>
 
                 {/* Large email with hover effect */}
@@ -105,7 +125,7 @@ export function ContactSection() {
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
                   <Button asChild variant="primary" size="lg">
                     <a href={`mailto:${CONTACTS_LINKS.email}`}>
-                      <span>Написать письмо</span>
+                      <span>{t.contact.sendEmail}</span>
                       <svg
                         className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                         fill="none"
@@ -121,7 +141,29 @@ export function ContactSection() {
                       </svg>
                     </a>
                   </Button>
-                  <EmailCopyButton email={CONTACTS_LINKS.email} />
+
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    className={cx(
+                      "inline-flex items-center justify-between gap-2 rounded-xl",
+                      "bg-bg-interactive px-4 py-3 text-sm text-text-primary ring-1 ring-border-default",
+                      "transition hover:bg-bg-interactive-hover",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+                    )}
+                  >
+                    {copied ? (
+                      <>
+                        <span>{t.contact.copied}</span>
+                        <CheckIcon className="h-4 w-4 text-emerald" />
+                      </>
+                    ) : (
+                      <>
+                        <span>{CONTACTS_LINKS.email}</span>
+                        <CopyIcon className="h-4 w-4 text-text-tertiary" />
+                      </>
+                    )}
+                  </button>
                 </div>
               </div>
 
@@ -129,7 +171,7 @@ export function ContactSection() {
               <div className="my-10 flex items-center gap-4 sm:my-12">
                 <div className="h-px flex-1 bg-linear-to-r from-transparent via-border-default to-transparent" />
                 <span className="rounded-full bg-bg-interactive px-3 py-1 text-xs text-text-muted ring-1 ring-border-subtle">
-                  или
+                  {t.contact.or}
                 </span>
                 <div className="h-px flex-1 bg-linear-to-r from-transparent via-border-default to-transparent" />
               </div>
@@ -137,17 +179,17 @@ export function ContactSection() {
               {/* Social links */}
               <div className="flex flex-col items-center gap-6">
                 <div className="text-xs font-medium uppercase tracking-widest text-text-muted">
-                  Социальные сети
+                  {t.contact.socials}
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-3">
                   <ContactLink
                     href={CONTACTS_LINKS.telegram}
-                    label="Telegram"
+                    label={t.common.telegram}
                   />
                   <ContactLink
                     href={CONTACTS_LINKS.github}
-                    label="GitHub"
+                    label={t.common.github}
                   />
                 </div>
               </div>
@@ -161,11 +203,9 @@ export function ContactSection() {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald opacity-75" />
                     <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald" />
                   </span>
-                  <span>Обычно отвечаю в течение 24 часов</span>
+                  <span>{t.contact.responseTime}</span>
                 </div>
-                <div className="text-text-tertiary">
-                  Москва, UTC+3
-                </div>
+                <div className="text-text-tertiary">{t.contact.timezone}</div>
               </div>
             </div>
           </div>
