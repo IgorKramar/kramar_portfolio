@@ -9,6 +9,7 @@ export const ru: Dictionary = {
 
   nav: {
     home: "Главная",
+    stack: "Стек",
     projects: "Кейсы",
     experience: "Опыт",
     contact: "Связаться",
@@ -138,7 +139,8 @@ export const ru: Dictionary = {
 
   footer: {
     role: "Senior Frontend / UI Architect",
-    description: "UI Kit, дизайн-токены, темизация, доступность, тестирование и DX.",
+    description:
+      "UI Kit, дизайн-токены, темизация, доступность, тестирование и DX.",
     write: "Написать",
     navigation: "Навигация",
     contacts: "Контакты",
@@ -159,5 +161,42 @@ export const ru: Dictionary = {
     toggleTheme: "Переключить тему",
     lightTheme: "Включить светлую тему",
     darkTheme: "Включить тёмную тему",
+  },
+
+  stack: {
+    meta: {
+      title: "Технологии",
+      description: "Технологический стек и инструменты, с которыми я работаю.",
+    },
+    hero: {
+      label: "Технологии",
+      title: "Мой",
+      titleAccent: "стек",
+      description:
+        "Инструменты и технологии для создания быстрых, доступных и масштабируемых приложений.",
+    },
+    filters: {
+      all: "Все",
+    },
+    levels: {
+      expert: "Эксперт",
+      advanced: "Продвинутый",
+      familiar: "Знаком",
+    },
+    categories: {
+      frontend: "Фронтенд",
+      backend: "Бэкенд",
+      database: "Базы данных",
+      devops: "DevOps",
+      testing: "Тестирование",
+      tools: "Инструменты",
+      ai: "AI / ML",
+    },
+    stats: {
+      total: "технологий",
+      categories: "категорий",
+      years: "лет опыта",
+    },
+    empty: "Технологии скоро появятся",
   },
 };

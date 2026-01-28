@@ -3,12 +3,12 @@ import type { Dictionary } from "@/interfaces";
 export const zh: Dictionary = {
   meta: {
     title: "伊戈尔·克拉马尔 — 高级前端 / UI系统架构师",
-    description:
-      "作品集：UI架构、设计系统、令牌、主题化、可访问性、测试和质量。",
+    description: "作品集：UI架构、设计系统、令牌、主题化、可访问性、测试和质量。",
   },
 
   nav: {
     home: "首页",
+    stack: "技术栈",
     projects: "案例",
     experience: "经验",
     contact: "联系",
@@ -86,8 +86,7 @@ export const zh: Dictionary = {
       {
         title: "系统重于英雄主义",
         subtitle: "可扩展性",
-        description:
-          "固定规则：令牌、组件契约、指南。团队更快、更可预测地前进。",
+        description: "固定规则：令牌、组件契约、指南。团队更快、更可预测地前进。",
         keywords: ["Design Tokens", "API Contracts", "Guidelines"],
       },
       {
@@ -100,15 +99,13 @@ export const zh: Dictionary = {
       {
         title: "质量是可衡量的",
         subtitle: "指标",
-        description:
-          "类型、代码检查、测试、回归和质量门控——让发布成为常规而非彩票。",
+        description: "类型、代码检查、测试、回归和质量门控——让发布成为常规而非彩票。",
         keywords: ["TypeScript", "Testing", "CI/CD"],
       },
       {
         title: "DX = 业务速度",
         subtitle: "生产力",
-        description:
-          "清晰的组件API、文档、模板和CI：更少的摩擦、更少的上下文、更多的结果。",
+        description: "清晰的组件API、文档、模板和CI：更少的摩擦、更少的上下文、更多的结果。",
         keywords: ["Storybook", "Documentation", "Templates"],
       },
     ],
@@ -151,5 +148,41 @@ export const zh: Dictionary = {
     toggleTheme: "切换主题",
     lightTheme: "启用浅色主题",
     darkTheme: "启用深色主题",
+  },
+
+  stack: {
+    meta: {
+      title: "技术栈",
+      description: "我使用的技术栈和工具。",
+    },
+    hero: {
+      label: "技术",
+      title: "我的",
+      titleAccent: "技术栈",
+      description: "用于构建快速、可访问和可扩展应用程序的工具和技术。",
+    },
+    filters: {
+      all: "全部",
+    },
+    levels: {
+      expert: "专家",
+      advanced: "高级",
+      familiar: "熟悉",
+    },
+    categories: {
+      frontend: "前端",
+      backend: "后端",
+      database: "数据库",
+      devops: "DevOps",
+      testing: "测试",
+      tools: "工具",
+      ai: "AI / ML",
+    },
+    stats: {
+      total: "项技术",
+      categories: "个类别",
+      years: "年经验",
+    },
+    empty: "技术即将推出",
   },
 };

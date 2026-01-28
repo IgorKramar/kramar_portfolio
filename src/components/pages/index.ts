@@ -4,3 +4,5 @@ export {
   HeroSection,
   PrinciplesSection,
 } from "./home";
+
+export { StackHeroSection, StackGridSection } from "./stack";

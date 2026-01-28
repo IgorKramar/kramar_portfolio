@@ -9,6 +9,7 @@ export const fr: Dictionary = {
 
   nav: {
     home: "Accueil",
+    stack: "Stack",
     projects: "Projets",
     experience: "Expérience",
     contact: "Contact",
@@ -138,7 +139,8 @@ export const fr: Dictionary = {
 
   footer: {
     role: "Senior Frontend / Architecte UI",
-    description: "UI Kit, design tokens, thématisation, accessibilité, tests et DX.",
+    description:
+      "UI Kit, design tokens, thématisation, accessibilité, tests et DX.",
     write: "Écrire",
     navigation: "Navigation",
     contacts: "Contacts",
@@ -159,5 +161,42 @@ export const fr: Dictionary = {
     toggleTheme: "Changer de thème",
     lightTheme: "Activer le thème clair",
     darkTheme: "Activer le thème sombre",
+  },
+
+  stack: {
+    meta: {
+      title: "Stack",
+      description: "Stack technologique et outils avec lesquels je travaille.",
+    },
+    hero: {
+      label: "Technologies",
+      title: "Mon",
+      titleAccent: "stack",
+      description:
+        "Outils et technologies pour créer des applications rapides, accessibles et évolutives.",
+    },
+    filters: {
+      all: "Tous",
+    },
+    levels: {
+      expert: "Expert",
+      advanced: "Avancé",
+      familiar: "Familier",
+    },
+    categories: {
+      frontend: "Frontend",
+      backend: "Backend",
+      database: "Bases de données",
+      devops: "DevOps",
+      testing: "Tests",
+      tools: "Outils",
+      ai: "AI / ML",
+    },
+    stats: {
+      total: "technologies",
+      categories: "catégories",
+      years: "ans d'expérience",
+    },
+    empty: "Technologies à venir",
   },
 };

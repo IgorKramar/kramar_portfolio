@@ -1,21 +1,19 @@
 export type Locale = "ru" | "en" | "zh" | "es" | "de" | "fr" | "kz";
 
 export interface Dictionary {
-  // Meta
   meta: {
     title: string;
     description: string;
   };
 
-  // Navigation
   nav: {
     home: string;
+    stack: string;
     projects: string;
     experience: string;
     contact: string;
   };
 
-  // Hero
   hero: {
     role: string;
     name: string;
@@ -32,7 +30,6 @@ export interface Dictionary {
     availability: string;
   };
 
-  // Achievements
   achievements: {
     label: string;
     title: string;
@@ -51,7 +48,6 @@ export interface Dictionary {
     };
   };
 
-  // Principles
   principles: {
     label: string;
     title: string;
@@ -65,7 +61,6 @@ export interface Dictionary {
     }[];
   };
 
-  // Contact
   contact: {
     badge: string;
     title: string;
@@ -81,7 +76,6 @@ export interface Dictionary {
     timezone: string;
   };
 
-  // Footer
   footer: {
     role: string;
     description: string;
@@ -94,7 +88,6 @@ export interface Dictionary {
     copyright: string;
   };
 
-  // Common
   common: {
     telegram: string;
     github: string;
@@ -105,5 +98,41 @@ export interface Dictionary {
     toggleTheme: string;
     lightTheme: string;
     darkTheme: string;
+  };
+
+  stack: {
+    meta: {
+      title: string;
+      description: string;
+    };
+    hero: {
+      label: string;
+      title: string;
+      titleAccent: string;
+      description: string;
+    };
+    filters: {
+      all: string;
+    };
+    levels: {
+      expert: string;
+      advanced: string;
+      familiar: string;
+    };
+    categories: {
+      frontend: string;
+      backend: string;
+      database: string;
+      devops: string;
+      testing: string;
+      tools: string;
+      ai: string;
+    };
+    stats: {
+      total: string;
+      categories: string;
+      years: string;
+    };
+    empty: string;
   };
 }
