@@ -256,3 +256,20 @@ body {
     transform: translateX(100%);
   }
 }
+
+/* ========================================
+   Mobile Fixes
+   ======================================== */
+
+/* Prevent horizontal scroll */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Safe area for iOS */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  footer {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 1.5rem);
+  }
+}

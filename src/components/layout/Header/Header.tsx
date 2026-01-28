@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { Button, Container, Logo, ThemeToggle } from "@/components";
 import { NAV_LINKS } from "@/data";
 import { usePrefersReducedMotion } from "@/hooks";
@@ -9,6 +10,7 @@ import { cx } from "@/utils";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const reducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLElement | null>(null);
 
@@ -36,44 +38,53 @@ export function Header() {
     return () => window.removeEventListener("pointermove", onMove);
   }, [reducedMotion]);
 
+  // Закрываем меню при изменении размера экрана
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 640) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <header
       ref={ref}
       className={cx(
         "fixed top-0 right-0 left-0 z-50 transition-all duration-300",
-        isScrolled ? "py-3" : "py-5",
+        isScrolled ? "py-2" : "py-3",
       )}
     >
       <Container>
         <nav
           className={cx(
-            "relative flex items-center justify-between gap-4 rounded-2xl border px-4 py-3 backdrop-blur-xl transition-all duration-300 sm:px-6",
+            "relative flex items-center justify-between gap-2 rounded-2xl border px-3 py-2.5 backdrop-blur-xl transition-all duration-300 sm:px-6 sm:py-3",
             isScrolled
               ? "border-border-default bg-bg-elevated shadow-lg"
               : "border-transparent bg-transparent",
           )}
         >
-          {/* Glow effects */}
+          {/* Glow effects - скрыты на мобилке */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl"
+            className="pointer-events-none absolute inset-0 hidden overflow-hidden rounded-2xl sm:block"
           >
             <div className="absolute inset-0 opacity-70 [background:radial-gradient(900px_circle_at_var(--mx,50%)_var(--my,0%),var(--color-sky-subtle),transparent_55%)] in-data-[theme='light']:opacity-50" />
             <div className="absolute -inset-0.5 opacity-60 blur-2xl [background:conic-gradient(from_180deg_at_50%_50%,var(--color-accent-subtle),var(--color-sky-subtle),var(--color-emerald-subtle),var(--color-accent-subtle))] in-data-[theme='light']:opacity-30" />
-            <div className="absolute inset-0 opacity-80 mask-[linear-gradient(to_bottom,black,transparent)] [background:linear-gradient(120deg,transparent,var(--color-bg-interactive),transparent)] motion-safe:animate-[sheen_6s_ease-in-out_infinite] in-data-[theme='light']:opacity-40" />
-            <div className="absolute inset-x-0 top-0 hidden h-px in-data-[theme='light']:block [background:linear-gradient(90deg,transparent,oklch(1_0_0/0.8),transparent)]" />
           </div>
 
           {/* Logo */}
           <Link
             href="/"
-            className="relative z-10 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+            className="relative z-10 shrink-0 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
           >
-            <Logo />
+            <Logo size="sm" />
           </Link>
 
-          {/* Navigation */}
-          <div className="relative z-10 flex items-center gap-1 sm:gap-2">
+          {/* Desktop Navigation */}
+          <div className="relative z-10 hidden items-center gap-1 sm:flex sm:gap-2">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -89,7 +100,49 @@ export function Header() {
               <a href="#contact">Связаться</a>
             </Button>
           </div>
+
+          {/* Mobile Navigation */}
+          <div className="relative z-10 flex items-center gap-2 sm:hidden">
+            <ThemeToggle />
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-bg-interactive ring-1 ring-border-default transition hover:bg-bg-interactive-hover"
+              aria-label={isMobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
+            >
+              {isMobileMenuOpen ? (
+                <FaTimes className="h-4 w-4 text-text-secondary" />
+              ) : (
+                <FaBars className="h-4 w-4 text-text-secondary" />
+              )}
+            </button>
+          </div>
         </nav>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="mt-2 overflow-hidden rounded-2xl border border-border-default bg-bg-elevated p-4 shadow-lg backdrop-blur-xl sm:hidden">
+            <nav className="flex flex-col gap-1">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="rounded-lg px-3 py-2.5 text-sm text-text-secondary transition-colors hover:bg-bg-interactive hover:text-text-primary"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="mt-3 border-t border-border-default pt-3">
+              <Button asChild size="sm" variant="primary" className="w-full">
+                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  Связаться
+                </a>
+              </Button>
+            </div>
+          </div>
+        )}
       </Container>
     </header>
   );
