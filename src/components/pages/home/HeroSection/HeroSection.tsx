@@ -11,7 +11,7 @@ const STACK = ["React", "TypeScript", "Next.js", "Design Tokens", "a11y"];
 
 export function HeroSection() {
   return (
-    <section id="top" className="relative -mt-24 overflow-hidden pt-42 sm:pt-52">
+    <section id="top" className="relative -mt-24 overflow-hidden pt-36 sm:pt-52">
       {/* Background effects */}
       <div aria-hidden className="pointer-events-none absolute inset-0 top-0">
         <div className="absolute -top-10 left-1/2 h-150 w-250 -translate-x-1/2 rounded-full opacity-70 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),transparent)]" />
@@ -20,7 +20,7 @@ export function HeroSection() {
       </div>
 
       <Container className="relative">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Левая часть — текст */}
           <div className="order-2 lg:order-1">
             <div className="text-sm font-medium uppercase tracking-widest text-accent">
@@ -55,7 +55,7 @@ export function HeroSection() {
           </div>
 
           {/* Правая часть — портрет */}
-          <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+          <div className="order-1 flex justify-center lg:order-2">
             <div className="relative">
               {/* Glow за портретом */}
               <div
@@ -68,15 +68,15 @@ export function HeroSection() {
                 {/* Декоративное кольцо */}
                 <div
                   aria-hidden
-                  className="absolute -inset-3 rounded-full border border-border-default opacity-50"
+                  className="absolute -inset-2 rounded-full border border-border-default opacity-50"
                 />
                 <div
                   aria-hidden
-                  className="absolute -inset-6 rounded-full border border-border-subtle opacity-30"
+                  className="absolute -inset-4 rounded-full border border-border-subtle opacity-30"
                 />
 
-                {/* Изображение */}
-                <div className="relative h-64 w-64 overflow-hidden rounded-full ring-1 ring-border-default sm:h-80 sm:w-80">
+                {/* Изображение — уменьшенный размер */}
+                <div className="relative h-52 w-52 overflow-hidden rounded-full ring-1 ring-border-default sm:h-64 sm:w-64 lg:h-72 lg:w-72">
                   <Image
                     src="/hero.jpg"
                     alt="Игорь Крамарь"
@@ -89,11 +89,11 @@ export function HeroSection() {
                 {/* Floating accent dots */}
                 <div
                   aria-hidden
-                  className="absolute -right-2 top-8 h-3 w-3 rounded-full bg-accent/60 blur-[2px]"
+                  className="absolute -right-1 top-6 h-2.5 w-2.5 rounded-full bg-accent/60 blur-[2px]"
                 />
                 <div
                   aria-hidden
-                  className="absolute -left-4 bottom-12 h-2 w-2 rounded-full bg-sky/50 blur-[1px]"
+                  className="absolute -left-2 bottom-10 h-2 w-2 rounded-full bg-sky/50 blur-[1px]"
                 />
               </div>
             </div>
@@ -101,8 +101,8 @@ export function HeroSection() {
         </div>
 
         {/* Карточка со стеком и статусом */}
-        <Card className="mt-12 p-6 sm:mt-16 sm:p-8">
-          <div className="grid gap-8 sm:grid-cols-2">
+        <Card className="mt-10 p-5 sm:mt-12 sm:p-6">
+          <div className="grid gap-6 sm:grid-cols-2">
             <div>
               <div className="text-xs font-medium uppercase tracking-widest text-text-muted">
                 Основной стек

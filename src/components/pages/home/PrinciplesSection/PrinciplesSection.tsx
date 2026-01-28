@@ -58,9 +58,7 @@ export function PrinciplesSection() {
               Философия
             </div>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl lg:text-5xl">
-              Принципы,
-              <br />
-              <span className="text-text-secondary">которым следую</span>
+              Принципы, которым следую
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-text-tertiary">
               Как я принимаю решения в интерфейсах, архитектуре и качестве. Эти

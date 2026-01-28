@@ -67,15 +67,13 @@ export function AchievementsSection() {
             Результаты
           </div>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl lg:text-5xl">
-            Что меняется после
-            <br />
-            <span className="text-text-secondary">системного подхода</span>
+            Что меняется после системного подхода
           </h2>
           <p className="mt-4 text-base text-text-tertiary sm:text-lg">
-            Измеримые улучшения в качестве, скорости и предсказуемости
-            разработки
+            Измеримые улучшения в качестве, скорости и предсказуемости разработки
           </p>
         </div>
+
 
         {/* Main grid */}
         <div className="mt-14 grid gap-4 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4">
