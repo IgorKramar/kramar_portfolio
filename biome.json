@@ -1,32 +1,125 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+
   "vcs": {
     "enabled": true,
     "clientKind": "git",
-    "useIgnoreFile": true
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
   },
+
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+    "ignore": [
+      "node_modules",
+      ".next",
+      "dist",
+      "build",
+      "coverage",
+      "*.min.js",
+      "*.min.css",
+      "pnpm-lock.yaml",
+      "package-lock.json"
+    ]
   },
+
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2
+    "indentWidth": 2,
+    "lineWidth": 100,
+    "lineEnding": "lf",
+    "formatWithErrors": false,
+    "attributePosition": "auto"
   },
+
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "jsxQuoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "all",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false
+    }
+  },
+
+  "json": {
+    "formatter": {
+      "trailingCommas": "none"
+    }
+  },
+
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 100,
+      "quoteStyle": "double"
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
+
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "noUnknownAtRules": "off",
+        "noExplicitAny": "warn",
+        "noArrayIndexKey": "warn"
+      },
+
+      "complexity": {
+        "noUselessFragments": "error",
+        "noForEach": "warn",
+        "useFlatMap": "error"
+      },
+
+      "style": {
+        "useConst": "error",
+        "noNonNullAssertion": "warn",
+        "useImportType": "error",
+        "useExportType": "error",
+        "useTemplate": "error",
+        "noUnusedTemplateLiteral": "error"
+      },
+
+      "correctness": {
+        "useExhaustiveDependencies": "warn",
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error"
+      },
+
+      "a11y": {
+        "useButtonType": "error",
+        "useAltText": "error",
+        "noBlankTarget": "error",
+        "useValidAnchor": "error",
+        "useKeyWithClickEvents": "warn"
+      },
+
+      "performance": {
+        "noAccumulatingSpread": "warn",
+        "noDelete": "warn"
+      },
+
+      "security": {
+        "noDangerouslySetInnerHtml": "warn"
       }
     },
+
     "domains": {
       "next": "recommended",
       "react": "recommended"
     }
   },
+
   "assist": {
     "actions": {
       "source": {
