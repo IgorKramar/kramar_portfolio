@@ -57,7 +57,7 @@ export function AchievementsSection() {
     <section id="achievements" className="relative py-20 sm:py-28">
       {/* Background accent */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),transparent)]" />
+        <div className="absolute left-1/2 top-1/2 h-150 w-200 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),transparent)]" />
       </div>
 
       <Container size="wide" className="relative">
@@ -99,7 +99,7 @@ export function AchievementsSection() {
             <div className="flex flex-wrap justify-center gap-8 sm:gap-12">
               {IMPACT_STATS.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300 font-semibold text-text-primary sm:text-3xl">
+                  <div className="text-2xl icon-outline group-hover:text-accent transition-colors duration-300 font-semibold text-text-primary sm:text-3xl">
                     {stat.value}
                   </div>
                   <div className="mt-1 text-xs text-text-muted">

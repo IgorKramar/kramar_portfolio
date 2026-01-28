@@ -7,4 +7,4 @@ export {
   PrinciplesSection,
 } from "./pages";
 export { ContactLink, EmailCopyButton, ThemeToggle } from "./shared";
-export { Badge, Button, Card, CardShell } from "./ui";
+export { Badge, Button, Card, CardShell, Logo } from "./ui";

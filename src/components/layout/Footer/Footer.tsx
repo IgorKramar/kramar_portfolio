@@ -37,15 +37,16 @@ export function Footer() {
 
   return (
     <footer ref={ref} className="relative mt-24 px-3 pb-10 sm:px-6">
-      <div className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border-default bg-bg-elevated backdrop-blur-xl shadow-lg">
+      <div className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border-default bg-bg-elevated shadow-lg backdrop-blur-xl">
         {/* Background effects */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 overflow-hidden"
         >
-          <div className="absolute inset-0 opacity-70 [background:radial-gradient(850px_circle_at_var(--mx,50%)_var(--my,50%),var(--color-sky-subtle),transparent_55%)]" />
-          <div className="absolute -inset-[2px] opacity-55 [background:conic-gradient(from_180deg_at_50%_50%,var(--color-accent-subtle),var(--color-sky-subtle),var(--color-emerald-subtle),var(--color-accent-subtle))] blur-2xl" />
-          <div className="absolute inset-0 opacity-70 [mask-image:linear-gradient(to_top,black,transparent)] [background:linear-gradient(110deg,transparent,var(--color-bg-interactive),transparent)] motion-safe:animate-[sheen_8s_ease-in-out_infinite]" />
+          <div className="absolute inset-0 opacity-70 [background:radial-gradient(850px_circle_at_var(--mx,50%)_var(--my,50%),var(--color-sky-subtle),transparent_55%)] in-data-[theme='light']:opacity-40" />
+          <div className="absolute -inset-0.5 opacity-55 blur-2xl [background:conic-gradient(from_180deg_at_50%_50%,var(--color-accent-subtle),var(--color-sky-subtle),var(--color-emerald-subtle),var(--color-accent-subtle))] in-data-[theme='light']:opacity-25" />
+          <div className="absolute inset-0 opacity-70 mask-[linear-gradient(to_top,black,transparent)] [background:linear-gradient(110deg,transparent,var(--color-bg-interactive),transparent)] motion-safe:animate-[sheen_8s_ease-in-out_infinite] in-data-[theme='light']:opacity-30" />
+          <div className="absolute inset-x-4 top-0 hidden h-px in-data-[theme='light']:block [background:linear-gradient(90deg,transparent,oklch(1_0_0/0.6),transparent)]" />
         </div>
 
         <div className="relative grid gap-10 px-5 py-8 sm:grid-cols-12 sm:gap-8 sm:px-8 sm:py-10">
@@ -88,27 +89,28 @@ export function Footer() {
           {/* Right: quick links */}
           <div className="sm:col-span-7 sm:pl-4">
             <div className="grid gap-8 sm:grid-cols-2">
+              {/* Navigation */}
               <div>
                 <div className="text-sm font-semibold text-text-primary">
                   Быстрые ссылки
                 </div>
-                <div className="mt-3 flex flex-col items-start gap-1">
+                <nav className="mt-3 flex flex-col items-start gap-1">
                   {NAV_LINKS.map((l) => (
-                    <Button
+                    <Link
                       key={l.href}
-                      asChild
-                      variant="ghost"
-                      size="sm"
+                      href={l.href}
+                      className="group inline-flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-text-secondary transition hover:bg-bg-interactive hover:text-text-primary"
                     >
-                      <Link href={l.href}>
-                        {l.label}
-                        <span className="text-text-muted">→</span>
-                      </Link>
-                    </Button>
+                      <span>{l.label}</span>
+                      <span className="text-text-muted transition-transform group-hover:translate-x-0.5">
+                        →
+                      </span>
+                    </Link>
                   ))}
-                </div>
+                </nav>
               </div>
 
+              {/* About site */}
               <div>
                 <div className="text-sm font-semibold text-text-primary">
                   Сайт как демонстрация подхода
@@ -130,6 +132,7 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Bottom bar */}
         <div className="relative flex flex-col gap-3 border-t border-border-default px-5 py-5 text-xs text-text-tertiary sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <div>
             © {new Date().getFullYear()} Игорь Крамарь.{" "}
@@ -137,9 +140,12 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <Button asChild variant="ghost" size="sm" className="h-auto px-2 py-1">
-              <a href="/#top">Наверх</a>
-            </Button>
+            <a
+              href="#top"
+              className="rounded-lg px-2 py-1 text-sm text-text-secondary transition hover:bg-bg-interactive hover:text-text-primary"
+            >
+              Наверх
+            </a>
             <span className="text-text-muted">•</span>
             <span className="text-text-muted">
               Сделано аккуратно и без спешки

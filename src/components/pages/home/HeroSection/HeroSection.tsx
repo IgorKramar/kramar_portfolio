@@ -11,11 +11,11 @@ const STACK = ["React", "TypeScript", "Next.js", "Design Tokens", "a11y"];
 
 export function HeroSection() {
   return (
-    <section id="top" className="relative -mt-24 overflow-hidden pt-38 sm:pt-44">
+    <section id="top" className="relative -mt-24 overflow-hidden pt-42 sm:pt-52">
       {/* Background effects — теперь начинаются от самого верха */}
       <div aria-hidden className="pointer-events-none absolute inset-0 top-0">
-        <div className="absolute -top-10 left-1/2 h-[600px] w-[1000px] -translate-x-1/2 rounded-full opacity-70 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),transparent)]" />
-        <div className="absolute -top-5 left-[15%] h-[500px] w-[600px] rounded-full opacity-45 blur-3xl [background:radial-gradient(closest-side,var(--color-sky-subtle),transparent)]" />
+        <div className="absolute -top-10 left-1/2 h-150 w-250 -translate-x-1/2 rounded-full opacity-70 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),transparent)]" />
+        <div className="absolute -top-5 left-[15%] h-125 w-150 rounded-full opacity-45 blur-3xl [background:radial-gradient(closest-side,var(--color-sky-subtle),transparent)]" />
         <div className="absolute inset-0 opacity-50 [background:linear-gradient(110deg,transparent,var(--color-bg-interactive),transparent)]" />
       </div>
 
