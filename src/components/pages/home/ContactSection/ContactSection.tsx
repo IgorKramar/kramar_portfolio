@@ -39,7 +39,7 @@ export function ContactSection() {
         <div className="absolute bottom-20 right-0 h-75 w-100 rounded-full opacity-25 blur-3xl [background:radial-gradient(closest-side,var(--color-emerald-subtle),transparent)]" />
       </div>
 
-      <Container size="narrow" className="relative">
+      <Container className="relative">
         {/* Header */}
         <div className="text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-accent-subtle px-4 py-1.5 text-sm font-medium text-accent-text ring-1 ring-accent/20">
@@ -62,7 +62,7 @@ export function ContactSection() {
         </div>
 
         {/* Main card */}
-        <div className="relative mt-12 sm:mt-16">
+        <div className="relative mx-auto mt-12 max-w-2xl sm:mt-16">
           {/* Card glow */}
           <div
             aria-hidden
@@ -94,11 +94,11 @@ export function ContactSection() {
                   href={`mailto:${CONTACTS_LINKS.email}`}
                   className="group relative mt-4 inline-block"
                 >
-                  <span className="relative z-10 block text-3xl font-semibold tracking-tight text-text-primary transition-colors duration-300 group-hover:text-accent sm:text-4xl lg:text-5xl">
+                  <span className="relative z-10 block text-2xl font-semibold tracking-tight text-text-primary transition-colors duration-300 group-hover:text-accent sm:text-3xl lg:text-4xl">
                     {CONTACTS_LINKS.email}
                   </span>
                   {/* Underline animation */}
-                  <span className="absolute bottom-0 left-0 h-0.75 w-0 rounded-full bg-linear-to-r from-accent via-sky to-emerald transition-all duration-500 group-hover:w-full" />
+                  <span className="absolute bottom-0 left-0 h-0.5 w-0 rounded-full bg-linear-to-r from-accent via-sky to-emerald transition-all duration-500 group-hover:w-full" />
                 </a>
 
                 {/* Action buttons */}

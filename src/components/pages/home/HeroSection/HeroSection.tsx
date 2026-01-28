@@ -12,7 +12,7 @@ const STACK = ["React", "TypeScript", "Next.js", "Design Tokens", "a11y"];
 export function HeroSection() {
   return (
     <section id="top" className="relative -mt-24 overflow-hidden pt-42 sm:pt-52">
-      {/* Background effects — теперь начинаются от самого верха */}
+      {/* Background effects */}
       <div aria-hidden className="pointer-events-none absolute inset-0 top-0">
         <div className="absolute -top-10 left-1/2 h-150 w-250 -translate-x-1/2 rounded-full opacity-70 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),transparent)]" />
         <div className="absolute -top-5 left-[15%] h-125 w-150 rounded-full opacity-45 blur-3xl [background:radial-gradient(closest-side,var(--color-sky-subtle),transparent)]" />
@@ -140,7 +140,11 @@ export function HeroSection() {
         </Card>
       </Container>
 
-      <div className="h-14 sm:h-20" />
+      {/* Section fade out */}
+      <div
+        aria-hidden
+        className="pointer-events-none relative mt-16 h-24 sm:mt-20 sm:h-32 [background:linear-gradient(to_bottom,transparent,var(--color-bg-base))]"
+      />
     </section>
   );
 }

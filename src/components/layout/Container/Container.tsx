@@ -16,11 +16,12 @@ export function Container({
 }: ContainerProps) {
   const TagAs = as;
 
+  // Унифицированные размеры
   const sizeClass =
     size === "narrow"
-      ? "max-w-3xl"
+      ? "max-w-2xl"
       : size === "wide"
-        ? "max-w-6xl"
+        ? "max-w-5xl"
         : "max-w-5xl";
 
   return (

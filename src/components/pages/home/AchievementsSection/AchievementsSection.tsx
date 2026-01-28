@@ -9,7 +9,7 @@ import { AchievementCard } from "./components";
 
 const ACHIEVEMENTS = [
   {
-    icon: <FaChartLine className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
+    icon: <FaChartLine className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
     metric: "89%",
     metricSuffix: "покрытие",
     label: "Тестирование",
@@ -18,7 +18,7 @@ const ACHIEVEMENTS = [
     highlight: "0% → 89%",
   },
   {
-    icon: <FaPalette className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
+    icon: <FaPalette className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
     metric: "40+",
     metricSuffix: "компонентов",
     label: "Дизайн-система",
@@ -27,7 +27,7 @@ const ACHIEVEMENTS = [
     highlight: "Tokens → UI",
   },
   {
-    icon: <FaUniversalAccess className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
+    icon: <FaUniversalAccess className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
     metric: "AA",
     metricSuffix: "WCAG",
     label: "Доступность",
@@ -36,7 +36,7 @@ const ACHIEVEMENTS = [
     highlight: "a11y by default",
   },
   {
-    icon: <FaBolt className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
+    icon: <FaBolt className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
     metric: "2×",
     metricSuffix: "быстрее",
     label: "Скорость релизов",
@@ -60,7 +60,7 @@ export function AchievementsSection() {
         <div className="absolute left-1/2 top-1/2 h-150 w-200 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),transparent)]" />
       </div>
 
-      <Container size="wide" className="relative">
+      <Container className="relative">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="text-sm font-medium uppercase tracking-widest text-accent">
@@ -99,7 +99,7 @@ export function AchievementsSection() {
             <div className="flex flex-wrap justify-center gap-8 sm:gap-12">
               {IMPACT_STATS.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-2xl icon-outline group-hover:text-accent transition-colors duration-300 font-semibold text-text-primary sm:text-3xl">
+                  <div className="text-2xl font-semibold text-text-primary sm:text-3xl">
                     {stat.value}
                   </div>
                   <div className="mt-1 text-xs text-text-muted">

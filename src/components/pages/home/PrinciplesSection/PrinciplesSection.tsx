@@ -1,11 +1,11 @@
-import { FaBolt, FaC, FaChartBar, FaUniversalAccess } from "react-icons/fa6";
+import { FaBolt, FaCubes, FaChartBar, FaUniversalAccess } from "react-icons/fa6";
 import { Container } from "@/components";
 import { PrincipleCard } from "./components";
 
 const PRINCIPLES = [
   {
     number: "01",
-    icon: <FaC className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
+    icon: <FaCubes className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
     title: "Система важнее героизма",
     subtitle: "Масштабируемость",
     description:
@@ -14,7 +14,7 @@ const PRINCIPLES = [
   },
   {
     number: "02",
-    icon: <FaUniversalAccess className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
+    icon: <FaUniversalAccess className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
     title: "Доступность — часть качества",
     subtitle: "Инклюзивность",
     description:
@@ -23,7 +23,7 @@ const PRINCIPLES = [
   },
   {
     number: "03",
-    icon: <FaChartBar className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
+    icon: <FaChartBar className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
     title: "Качество измеримо",
     subtitle: "Метрики",
     description:
@@ -32,7 +32,7 @@ const PRINCIPLES = [
   },
   {
     number: "04",
-    icon: <FaBolt className="text-2xl icon-outline text-text-primary group-hover:text-accent transition-colors duration-300" />,
+    icon: <FaBolt className="text-2xl text-text-primary transition-colors duration-300 group-hover:text-accent" />,
     title: "DX = скорость бизнеса",
     subtitle: "Продуктивность",
     description:
@@ -46,11 +46,11 @@ export function PrinciplesSection() {
     <section id="principles" className="relative py-20 sm:py-28">
       {/* Background */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute right-0 top-1/4 h-[500px] w-[500px] rounded-full opacity-30 blur-3xl [background:radial-gradient(closest-side,var(--color-emerald-subtle),transparent)]" />
-        <div className="absolute bottom-0 left-1/4 h-[400px] w-[600px] rounded-full opacity-20 blur-3xl [background:radial-gradient(closest-side,var(--color-sky-subtle),transparent)]" />
+        <div className="absolute right-0 top-1/4 h-125 w-125 rounded-full opacity-30 blur-3xl [background:radial-gradient(closest-side,var(--color-emerald-subtle),transparent)]" />
+        <div className="absolute bottom-0 left-1/4 h-100 w-150 rounded-full opacity-20 blur-3xl [background:radial-gradient(closest-side,var(--color-sky-subtle),transparent)]" />
       </div>
 
-      <Container size="wide" className="relative">
+      <Container className="relative">
         {/* Header */}
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">

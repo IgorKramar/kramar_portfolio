@@ -44,7 +44,7 @@ export function Header() {
         isScrolled ? "py-3" : "py-5",
       )}
     >
-      <Container size="wide">
+      <Container>
         <nav
           className={cx(
             "relative flex items-center justify-between gap-4 rounded-2xl border px-4 py-3 backdrop-blur-xl transition-all duration-300 sm:px-6",
