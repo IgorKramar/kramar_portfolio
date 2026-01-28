@@ -30,6 +30,11 @@ function detectSystemLocale(): Locale {
 
   if (browserLang.startsWith("ru")) return "ru";
   if (browserLang.startsWith("en")) return "en";
+  if (browserLang.startsWith("zh")) return "zh";
+  if (browserLang.startsWith("es")) return "es";
+  if (browserLang.startsWith("de")) return "de";
+  if (browserLang.startsWith("fr")) return "fr";
+  if (browserLang.startsWith("kz")) return "kz";
 
   return DEFAULT_LOCALE;
 }

@@ -21,7 +21,13 @@ interface LocaleOption {
 const LOCALES: LocaleOption[] = [
   { code: "ru", label: "Russian", nativeLabel: "Русский", flag: "🇷🇺" },
   { code: "en", label: "English", nativeLabel: "English", flag: "🇬🇧" },
+  { code: "zh", label: "Chinese", nativeLabel: "中文", flag: "🇨🇳" },
+  { code: "es", label: "Spanish", nativeLabel: "Español", flag: "🇪🇸" },
+  { code: "de", label: "German", nativeLabel: "Deutsch", flag: "🇩🇪" },
+  { code: "fr", label: "French", nativeLabel: "Français", flag: "🇫🇷" },
+  { code: "kz", label: "Kazakh", nativeLabel: "Қазақша", flag: "🇰🇿" },
 ];
+
 
 export function LocaleToggle({ className, variant = "compact" }: LocaleToggleProps) {
   const [mounted, setMounted] = useState(false);

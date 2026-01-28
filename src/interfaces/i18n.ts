@@ -1,4 +1,4 @@
-export type Locale = "ru" | "en";
+export type Locale = "ru" | "en" | "zh" | "es" | "de" | "fr" | "kz";
 
 export interface Dictionary {
   // Meta
