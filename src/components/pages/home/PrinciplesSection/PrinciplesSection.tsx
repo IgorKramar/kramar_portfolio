@@ -43,7 +43,7 @@ const PRINCIPLES = [
 
 export function PrinciplesSection() {
   return (
-    <section id="principles" className="relative py-20 sm:py-28">
+    <section id="principles" className="relative py-12 sm:py-16">
       {/* Background */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute right-0 top-1/4 h-125 w-125 rounded-full opacity-30 blur-3xl [background:radial-gradient(closest-side,var(--color-emerald-subtle),transparent)]" />

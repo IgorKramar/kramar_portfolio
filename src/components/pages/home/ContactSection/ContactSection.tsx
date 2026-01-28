@@ -27,11 +27,11 @@ export function ContactSection() {
   }, [reducedMotion]);
 
   return (
-    <section
-      ref={sectionRef}
-      id="contact"
-      className="relative py-24 sm:py-32"
-    >
+      <section
+        ref={sectionRef}
+        id="contact"
+        className="relative py-16 sm:py-20"
+      >
       {/* Background effects */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-0 h-125 w-200 -translate-x-1/2 rounded-full opacity-40 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),transparent)]" />
@@ -169,17 +169,6 @@ export function ContactSection() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Bottom decorative elements */}
-        <div aria-hidden className="mt-16 flex items-center justify-center gap-4">
-          <div className="h-px w-16 bg-linear-to-r from-transparent to-border-default" />
-          <div className="flex gap-1.5">
-            <div className="h-1.5 w-1.5 rounded-full bg-accent/60" />
-            <div className="h-1.5 w-1.5 rounded-full bg-sky/60" />
-            <div className="h-1.5 w-1.5 rounded-full bg-emerald/60" />
-          </div>
-          <div className="h-px w-16 bg-linear-to-l from-transparent to-border-default" />
         </div>
       </Container>
     </section>

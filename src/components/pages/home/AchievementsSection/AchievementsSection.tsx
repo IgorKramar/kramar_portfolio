@@ -54,7 +54,7 @@ const IMPACT_STATS = [
 
 export function AchievementsSection() {
   return (
-    <section id="achievements" className="relative py-20 sm:py-28">
+    <section id="achievements" className="relative py-12 sm:py-16">
       {/* Background accent */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-1/2 h-150 w-200 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),transparent)]" />

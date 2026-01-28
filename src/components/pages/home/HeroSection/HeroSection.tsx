@@ -143,7 +143,7 @@ export function HeroSection() {
       {/* Section fade out */}
       <div
         aria-hidden
-        className="pointer-events-none relative mt-16 h-24 sm:mt-20 sm:h-32 [background:linear-gradient(to_bottom,transparent,var(--color-bg-base))]"
+        className="pointer-events-none relative mt-8 h-16 sm:mt-12 sm:h-20 [background:linear-gradient(to_bottom,transparent,var(--color-bg-base))]"
       />
     </section>
   );
