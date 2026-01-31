@@ -7,6 +7,8 @@ export {
   PrinciplesSection,
   StackHeroSection,
   StackGridSection,
+  ExperienceHeroSection,
+  ExperienceTimelineSection
 } from "./pages";
 export { ContactLink, EmailCopyButton, LocaleToggle, ThemeToggle } from "./shared";
 export { Badge, Button, Card, CardShell, Logo } from "./ui";

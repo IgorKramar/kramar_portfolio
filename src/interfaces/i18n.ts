@@ -135,4 +135,16 @@ export interface Dictionary {
     };
     empty: string;
   };
+
+  experience?: {
+  meta?: {
+    title: string;
+    description: string;
+  };
+  hero?: {
+    badge: string;
+    title: string;
+    subtitle: string;
+  };
+};
 }

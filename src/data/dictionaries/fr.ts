@@ -199,4 +199,15 @@ export const fr: Dictionary = {
     },
     empty: "Technologies à venir",
   },
+  experience: {
+    meta: {
+      title: "Expérience",
+      description: "Expérience professionnelle et réalisations clés.",
+    },
+    hero: {
+      badge: "ans d'expérience",
+      title: "Expérience Professionnelle",
+      subtitle: "Construction de systèmes et d'équipes évolutifs",
+    },
+  },
 };

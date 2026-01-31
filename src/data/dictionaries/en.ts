@@ -199,4 +199,15 @@ export const en: Dictionary = {
     },
     empty: "Technologies coming soon",
   },
+  experience: {
+    meta: {
+      title: "Experience",
+      description: "Professional experience and key achievements.",
+    },
+    hero: {
+      badge: "years of experience",
+      title: "Professional Experience",
+      subtitle: "Building scalable systems and teams",
+    },
+  },
 };

@@ -199,4 +199,15 @@ export const es: Dictionary = {
     },
     empty: "Tecnologías próximamente",
   },
+  experience: {
+    meta: {
+      title: "Experiencia",
+      description: "Experiencia profesional y logros clave.",
+    },
+    hero: {
+      badge: "años de experiencia",
+      title: "Experiencia Profesional",
+      subtitle: "Construyendo sistemas y equipos escalables",
+    },
+  },
 };

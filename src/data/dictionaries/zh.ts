@@ -185,4 +185,15 @@ export const zh: Dictionary = {
     },
     empty: "技术即将推出",
   },
+  experience: {
+    meta: {
+      title: "工作经验",
+      description: "专业经验和关键成就。",
+    },
+    hero: {
+      badge: "年经验",
+      title: "专业经验",
+      subtitle: "构建可扩展的系统和团队",
+    },
+  },
 };
