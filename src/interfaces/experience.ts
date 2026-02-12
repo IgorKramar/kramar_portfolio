@@ -10,6 +10,8 @@ export interface Experience {
   id: string;
   company: string;
   companyUrl?: string;
+  logo: string;
+
   role: Record<Locale, string>;
   period: {
     start: string;

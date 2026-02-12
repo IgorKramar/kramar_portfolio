@@ -5,6 +5,7 @@ export const EXPERIENCE_DATA: Experience[] = [
     id: "gems",
     company: "Gems Development",
     companyUrl: "https://gems.pro",
+    logo: "/images/companies/gems-development.png",
     role: {
       ru: "Senior Frontend Developer",
       en: "Senior Frontend Developer",
@@ -132,6 +133,7 @@ export const EXPERIENCE_DATA: Experience[] = [
     id: "softwise",
     company: "SoftWise",
     companyUrl: "https://softwise.com",
+    logo: "/images/companies/softwise.png",
     role: {
       ru: "Fullstack Developer",
       en: "Fullstack Developer",
@@ -285,6 +287,7 @@ export const EXPERIENCE_DATA: Experience[] = [
     id: "rshb-intech",
     company: "РСХБ-Интех",
     companyUrl: "https://rshb-intech.ru",
+    logo: "/images/companies/rshb-intech.png",
     role: {
       ru: "Senior Frontend Developer / Head of Frontend Office",
       en: "Senior Frontend Developer / Head of Frontend Office",
@@ -438,6 +441,7 @@ export const EXPERIENCE_DATA: Experience[] = [
     id: "t1",
     company: "Т1",
     companyUrl: "https://t1.ru",
+    logo: "/images/companies/t1.png",
     role: {
       ru: "Senior Frontend Developer",
       en: "Senior Frontend Developer",
@@ -604,6 +608,7 @@ export const EXPERIENCE_DATA: Experience[] = [
     id: "dins-ringcentral",
     company: "Dins / RingCentral",
     companyUrl: "https://www.ringcentral.com",
+    logo: "/images/companies/ringcentral.png",
     role: {
       ru: "Senior Frontend Developer",
       en: "Senior Frontend Developer",
@@ -770,6 +775,7 @@ export const EXPERIENCE_DATA: Experience[] = [
     id: "purrweb",
     company: "Purrweb",
     companyUrl: "https://www.purrweb.com",
+    logo: "/images/companies/purrweb.png",
     role: {
       ru: "Senior Frontend Developer / Team Lead",
       en: "Senior Frontend Developer / Team Lead",
@@ -936,6 +942,7 @@ export const EXPERIENCE_DATA: Experience[] = [
     id: "2dit",
     company: "2Dit",
     companyUrl: "https://2dit.ru",
+    logo: "/images/companies/2dit.png",
     role: {
       ru: "Web Developer",
       en: "Web Developer",

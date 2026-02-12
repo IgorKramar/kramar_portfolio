@@ -13,7 +13,7 @@ export function ExperienceHeroSection() {
   const topAchievements = getKeyAchievements().slice(0, 3);
 
   return (
-    <section className="relative -mt-24 overflow-hidden pt-44 sm:pt-52">
+    <section className="relative -mt-24 overflow-hidden pt-44 sm:pt-52 pb-16">
       {/* Animated gradient background */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -top-20 left-1/2 h-150 w-200 -translate-x-1/2 animate-pulse rounded-full opacity-30 blur-3xl [background:radial-gradient(closest-side,var(--color-accent-subtle),transparent)]" />
