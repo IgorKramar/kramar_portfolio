@@ -3,7 +3,8 @@ import type { Dictionary } from "@/interfaces";
 export const zh: Dictionary = {
   meta: {
     title: "伊戈尔·克拉马尔 — 高级前端 / UI系统架构师",
-    description: "作品集：UI架构、设计系统、令牌、主题化、可访问性、测试和质量。",
+    description:
+      "作品集：UI架构、设计系统、令牌、主题化、可访问性、测试和质量。",
   },
 
   nav: {
@@ -54,7 +55,8 @@ export const zh: Dictionary = {
         metric: "AA",
         metricSuffix: "WCAG",
         label: "可访问性",
-        description: "语义化、键盘、焦点管理、对比度。a11y作为完成定义的一部分。",
+        description:
+          "语义化、键盘、焦点管理、对比度。a11y作为完成定义的一部分。",
         highlight: "a11y by default",
       },
       {
@@ -86,7 +88,8 @@ export const zh: Dictionary = {
       {
         title: "系统重于英雄主义",
         subtitle: "可扩展性",
-        description: "固定规则：令牌、组件契约、指南。团队更快、更可预测地前进。",
+        description:
+          "固定规则：令牌、组件契约、指南。团队更快、更可预测地前进。",
         keywords: ["Design Tokens", "API Contracts", "Guidelines"],
       },
       {
@@ -99,13 +102,15 @@ export const zh: Dictionary = {
       {
         title: "质量是可衡量的",
         subtitle: "指标",
-        description: "类型、代码检查、测试、回归和质量门控——让发布成为常规而非彩票。",
+        description:
+          "类型、代码检查、测试、回归和质量门控——让发布成为常规而非彩票。",
         keywords: ["TypeScript", "Testing", "CI/CD"],
       },
       {
         title: "DX = 业务速度",
         subtitle: "生产力",
-        description: "清晰的组件API、文档、模板和CI：更少的摩擦、更少的上下文、更多的结果。",
+        description:
+          "清晰的组件API、文档、模板和CI：更少的摩擦、更少的上下文、更多的结果。",
         keywords: ["Storybook", "Documentation", "Templates"],
       },
     ],
@@ -194,6 +199,33 @@ export const zh: Dictionary = {
       badge: "年经验",
       title: "专业经验",
       subtitle: "构建可扩展的系统和团队",
+    },
+    card: {
+      present: "至今",
+      achievements: "主要成就",
+      showMore: "显示",
+      showLess: "隐藏",
+      readMore: "阅读更多",
+      readLess: "收起",
+      technologies: "技术栈",
+      remote: "远程",
+      hybrid: "混合",
+      office: "办公室",
+      featured: "精选",
+    },
+    months: {
+      "01": "1月",
+      "02": "2月",
+      "03": "3月",
+      "04": "4月",
+      "05": "5月",
+      "06": "6月",
+      "07": "7月",
+      "08": "8月",
+      "09": "9月",
+      "10": "10月",
+      "11": "11月",
+      "12": "12月",
     },
   },
 };

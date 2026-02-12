@@ -31,7 +31,7 @@ export function ExperienceTimelineSection() {
               transition={{ duration: 0.5 }}
               className={cx(
                 "relative grid gap-8 lg:grid-cols-2",
-                index % 2 === 0 ? "lg:text-right" : "lg:text-left"
+                index % 2 === 0 ? "lg:text-right" : "lg:text-left",
               )}
             >
               {/* Timeline dot */}
@@ -50,7 +50,9 @@ export function ExperienceTimelineSection() {
                 <ExperienceCard
                   experience={exp}
                   isExpanded={selectedId === exp.id}
-                  onToggle={() => setSelectedId(selectedId === exp.id ? null : exp.id)}
+                  onToggle={() =>
+                    setSelectedId(selectedId === exp.id ? null : exp.id)
+                  }
                 />
               </div>
 

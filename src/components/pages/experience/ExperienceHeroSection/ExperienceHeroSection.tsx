@@ -55,7 +55,8 @@ export function ExperienceHeroSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 text-lg text-text-tertiary sm:text-xl"
           >
-            {t.experience?.hero?.subtitle || "Building scalable systems and teams"}
+            {t.experience?.hero?.subtitle ||
+              "Building scalable systems and teams"}
           </motion.p>
 
           {/* Key metrics carousel */}

@@ -21,7 +21,6 @@ export interface Experience {
 
   description: Record<Locale, string>;
 
-
   keyMetrics: {
     icon: string;
     value: string;

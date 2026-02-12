@@ -1,9 +1,10 @@
-import { Achievement, Experience } from "@/interfaces";
+import type { Achievement, Experience } from "@/interfaces";
 
 export const EXPERIENCE_DATA: Experience[] = [
   {
     id: "gems",
     company: "Gems Development",
+    companyUrl: "https://gems.pro",
     role: {
       ru: "Senior Frontend Developer",
       en: "Senior Frontend Developer",
@@ -11,26 +12,27 @@ export const EXPERIENCE_DATA: Experience[] = [
       es: "Desarrollador Frontend Senior",
       fr: "Développeur Frontend Senior",
       de: "Senior Frontend-Entwickler",
-      kz: "Senior Frontend әзірлеуші",
+      kz: "Senior Frontend әzіrlеushі",
     },
     period: {
       start: "2025-10",
+      end: "2026-01",
     },
-    location: "Москва",
+    location: "Омск",
     format: "hybrid",
     type: "fulltime",
     description: {
-      ru: "Отвечаю за развитие фронтенд-платформы и качество поставки. Построил систему темизации и доступности (a11y) для UI Kit с token-подходом.",
-      en: "Leading frontend platform development and delivery quality. Built theming and accessibility system for UI Kit with token-based approach.",
-      zh: "负责前端平台开发和交付质量。为UI Kit构建了基于令牌的主题化和可访问性系统。",
-      es: "Liderando el desarrollo de plataforma frontend y calidad de entrega. Construí sistema de tematización y accesibilidad para UI Kit con enfoque basado en tokens.",
-      fr: "Direction du développement de la plateforme frontend et de la qualité de livraison. Construction d'un système de thématisation et d'accessibilité pour UI Kit avec approche basée sur les tokens.",
-      de: "Leitung der Frontend-Plattform-Entwicklung und Lieferqualität. Aufbau eines Theming- und Accessibility-Systems für UI Kit mit Token-basiertem Ansatz.",
-      kz: "Frontend платформасын дамыту және жеткізу сапасын басқару. UI Kit үшін токен негізіндегі тақырыптау және қолжетімділік жүйесін құрдым.",
+      ru: "Отвечал за развитие фронтенд‑платформы и качество поставки. Ключевым результатом стала проработка и внедрение доскональной системы темизации и доступности (a11y) для внутреннего UI Kit: выстроил token‑подход, правила темизации, обеспечил консистентность компонентов и предсказуемое поведение в разных сценариях, чтобы дизайн‑система была реально переиспользуемой и масштабируемой. Параллельно системно поднял качество кода: довёл покрытие автотестами до 89% для критичной логики и компонентов, настроил практики и контроль в пайплайне. Также взял на себя инженерную инфраструктуру фронтенда: настроил сборку и деплой, выстроил стабильные окружения и процесс доставки изменений.",
+      en: "Responsible for frontend platform development and delivery quality. Key achievement was the design and implementation of a comprehensive theming and accessibility (a11y) system for the internal UI Kit: established token-based approach, theming rules, ensured component consistency and predictable behavior across scenarios to make the design system truly reusable and scalable. Systematically improved code quality: increased test coverage to 89% for critical logic and components, set up practices and pipeline controls. Also took ownership of frontend engineering infrastructure: configured build and deployment, established stable environments and change delivery process.",
+      zh: "负责前端平台开发和交付质量。关键成果是为内部UI Kit设计和实施了全面的主题化和可访问性(a11y)系统。",
+      es: "Responsable del desarrollo de la plataforma frontend y la calidad de entrega.",
+      fr: "Responsable du développement de la plateforme frontend et de la qualité de livraison.",
+      de: "Verantwortlich für die Frontend-Plattform-Entwicklung und Lieferqualität.",
+      kz: "Frontend платформасын дамыту және жеткізу сапасына жауапты болдым.",
     },
     keyMetrics: [
       {
-        icon: "✅",
+        icon: "check",
         value: "89%",
         label: {
           ru: "Покрытие тестами",
@@ -40,10 +42,10 @@ export const EXPERIENCE_DATA: Experience[] = [
           fr: "Couverture des tests",
           de: "Testabdeckung",
           kz: "Тест қамтуы",
-        }
+        },
       },
       {
-        icon: "🎨",
+        icon: "palette",
         value: "40+",
         label: {
           ru: "UI компонентов",
@@ -53,10 +55,10 @@ export const EXPERIENCE_DATA: Experience[] = [
           fr: "Composants UI",
           de: "UI-Komponenten",
           kz: "UI компоненттері",
-        }
+        },
       },
       {
-        icon: "♿",
+        icon: "accessibility",
         value: "AA",
         label: {
           ru: "WCAG уровень",
@@ -66,61 +68,73 @@ export const EXPERIENCE_DATA: Experience[] = [
           fr: "Niveau WCAG",
           de: "WCAG-Level",
           kz: "WCAG деңгейі",
-        }
+        },
       },
     ],
-    techStack: ["React", "TypeScript", "Design Tokens", "Jest", "Playwright", "Storybook"],
+    techStack: [
+      "Vue 3",
+      "Nuxt 3",
+      "TypeScript",
+      "Pinia",
+      "Vuetify 3",
+      "Design Tokens",
+      "Vitest",
+      "Playwright",
+      "Histoire",
+      "Vite",
+      "CI/CD",
+    ],
     achievements: [
       {
         text: {
-          ru: "Внедрил систему темизации и a11y для внутреннего UI Kit с token-подходом",
-          en: "Implemented theming and a11y system for internal UI Kit with token approach",
-          zh: "为内部UI Kit实施了基于令牌的主题化和a11y系统",
-          es: "Implementé sistema de tematización y a11y para UI Kit interno con enfoque de tokens",
-          fr: "Implémentation d'un système de thématisation et a11y pour UI Kit interne avec approche par tokens",
-          de: "Implementierung eines Theming- und a11y-Systems für internes UI Kit mit Token-Ansatz",
-          kz: "Ішкі UI Kit үшін токен тәсілімен тақырыптау және a11y жүйесін енгіздім",
+          ru: "Спроектировал и внедрил систему темизации и a11y для внутреннего UI Kit на Vue 3 с token-подходом",
+          en: "Designed and implemented theming and a11y system for internal Vue 3 UI Kit with token approach",
+          zh: "为内部Vue 3 UI Kit设计并实施了基于令牌的主题化和a11y系统",
+          es: "Diseñé e implementé sistema de tematización y a11y para UI Kit interno en Vue 3 con enfoque de tokens",
+          fr: "Conçu et implémenté un système de thématisation et a11y pour UI Kit interne en Vue 3 avec approche par tokens",
+          de: "Entwarf und implementierte Theming- und a11y-System für internes Vue 3 UI Kit mit Token-Ansatz",
+          kz: "Vue 3 негізіндегі ішкі UI Kit үшін токен-тәсілімен тақырыптау және a11y жүйесін жобаладым",
         },
         impact: "40+ компонентов",
-        tags: ["Design System", "a11y"]
+        tags: ["Vue 3", "Design System", "a11y", "Theming"],
       },
       {
         text: {
-          ru: "Довёл покрытие автотестами до 89% для критичной логики",
-          en: "Increased test coverage to 89% for critical logic",
-          zh: "将关键逻辑的测试覆盖率提高到89%",
-          es: "Aumenté la cobertura de pruebas al 89% para lógica crítica",
-          fr: "Augmentation de la couverture des tests à 89% pour la logique critique",
-          de: "Erhöhung der Testabdeckung auf 89% für kritische Logik",
-          kz: "Критикалық логика үшін автотест қамтуын 89%-ға дейін жеткіздім",
+          ru: "Довёл покрытие автотестами до 89% используя Vitest и Vue Test Utils",
+          en: "Increased test coverage to 89% using Vitest and Vue Test Utils",
+          zh: "使用Vitest和Vue Test Utils将测试覆盖率提高到89%",
+          es: "Aumenté la cobertura de pruebas al 89% usando Vitest y Vue Test Utils",
+          fr: "Augmenté la couverture de tests à 89% avec Vitest et Vue Test Utils",
+          de: "Erhöhte Testabdeckung auf 89% mit Vitest und Vue Test Utils",
+          kz: "Vitest және Vue Test Utils қолданып автотест қамтуын 89%-ға дейін жеткіздім",
         },
         impact: "0% → 89%",
-        tags: ["Testing", "Quality"]
+        tags: ["Testing", "Vitest", "Quality"],
       },
       {
         text: {
-          ru: "Настроил CI/CD и стабильные окружения для фронтенда",
-          en: "Set up CI/CD and stable environments for frontend",
-          zh: "为前端配置了CI/CD和稳定环境",
-          es: "Configuré CI/CD y entornos estables para frontend",
-          fr: "Configuration de CI/CD et d'environnements stables pour le frontend",
-          de: "Einrichtung von CI/CD und stabilen Umgebungen für Frontend",
-          kz: "Frontend үшін CI/CD және тұрақты орталарды баптадым",
+          ru: "Разработал фронтенд для систем геосервисов и документооборота на Nuxt 3",
+          en: "Developed frontend for geo-services and document management systems on Nuxt 3",
+          zh: "在Nuxt 3上开发了地理服务和文档管理系统的前端",
+          es: "Desarrollé frontend para sistemas de geoservicios y gestión documental en Nuxt 3",
+          fr: "Développé le frontend pour les systèmes de géoservices et de gestion documentaire sur Nuxt 3",
+          de: "Entwickelte Frontend für Geo-Services und Dokumentenmanagementsysteme auf Nuxt 3",
+          kz: "Nuxt 3 негізінде геосервистер және құжат айналымы жүйелері үшін фронтенд әзірледім",
         },
-        tags: ["DevOps", "Infrastructure"]
+        impact: "2 системы",
+        tags: ["Nuxt 3", "GeoServices", "Enterprise"],
       },
     ],
+
     highlight: true,
   },
-  // ... остальные компании по аналогии
 ];
 
 export function getTotalExperience(): string {
-  return "7 лет 10 месяцев";
+  return "7+ лет";
 }
 
 export function getKeyAchievements(): Achievement[] {
-  // Топ достижения для hero секции
   return [
     {
       text: {
