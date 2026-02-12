@@ -153,6 +153,8 @@ export const zh: Dictionary = {
     toggleTheme: "切换主题",
     lightTheme: "启用浅色主题",
     darkTheme: "启用深色主题",
+    totalExperience: "总经验",
+    years: "年",
   },
 
   stack: {

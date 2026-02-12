@@ -149,6 +149,8 @@ export const kz: Dictionary = {
     toggleTheme: "Тақырыпты ауыстыру",
     lightTheme: "Жарық тақырып",
     darkTheme: "Қараңғы тақырып",
+    totalExperience: "Жалпы тәжірибе",
+    years: "жыл",
   },
 
   stack: {

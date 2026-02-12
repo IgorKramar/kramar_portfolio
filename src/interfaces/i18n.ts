@@ -98,6 +98,8 @@ export interface Dictionary {
     toggleTheme: string;
     lightTheme: string;
     darkTheme: string;
+    totalExperience: string;
+    years: string;
   };
 
   stack: {

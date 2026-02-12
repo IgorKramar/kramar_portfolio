@@ -161,6 +161,8 @@ export const ru: Dictionary = {
     toggleTheme: "Переключить тему",
     lightTheme: "Включить светлую тему",
     darkTheme: "Включить тёмную тему",
+    totalExperience: "Общий опыт",
+    years: "лет",
   },
 
   stack: {

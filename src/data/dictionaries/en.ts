@@ -161,6 +161,8 @@ export const en: Dictionary = {
     toggleTheme: "Toggle theme",
     lightTheme: "Enable light theme",
     darkTheme: "Enable dark theme",
+    totalExperience: "Total experience",
+    years: "years",
   },
 
   stack: {
