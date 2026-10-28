@@ -8,6 +8,8 @@
 
 **React · Next.js · TypeScript · Tailwind CSS**
 
+[Selected public projects · EN](../github-profile/README.md) · [Витрина проектов · RU](../github-profile/README.ru.md)
+
 </div>
 
 ---
